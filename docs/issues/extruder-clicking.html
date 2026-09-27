@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Extruder clicking / skipping steps | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="clicking, skipping, extruder skipping, thunk, knocking sound, stepper skipping">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-extrusion-problems">Extrusion Problems</a> &rsaquo; Extruder clicking / skipping steps</nav>
+<h1>Extruder clicking / skipping steps</h1>
+<div class="meta-row"><span class="badge">Extrusion Problems</span> <span class="badge hw">Hardware symptom, often slicer/temp cause</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> Raise the nozzle temp 5–10°C. Clicking is the extruder motor stalling against backpressure — usually the plastic isn't melting fast enough.</aside>
+<h2>What it looks like</h2>
+<p>A rhythmic <em>thunk-thunk</em> from the extruder, sometimes with the extruder gear visibly jumping backward. Print shows under-extrusion or gaps corresponding to the skips.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Temperature too low</strong> for the speed/material — the #1 cause.</li><li><strong>Partial clog</strong> creating backpressure.</li><li><strong>Printing too fast</strong> — exceeding the hotend's volumetric melt rate.</li><li><strong>Nozzle too close to the bed</strong> on the first layer — nowhere for plastic to go.</li><li><strong>Idler tension wrong</strong> — too loose slips, too tight deforms filament and increases friction.</li><li><strong>Retraction too aggressive</strong> chewing the filament so the gear can't grip.</li><li><strong>Heat creep</strong> softening filament above the melt zone, increasing friction.</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Raise temp 5–10°C</strong> and/or <strong>slow down 20%</strong>. If clicking stops, you found it.</li><li>On the first layer only? Raise Z slightly — the nozzle is too close.</li><li><strong>Clear any partial clog</strong> (cold pull).</li><li>Adjust idler tension: tight enough that the gear teeth bite visibly but the filament isn't flattened.</li><li>Reduce retraction distance/speed to sane direct-drive values (1–2 mm, 25–40 mm/s).</li><li>Verify the hotend fan is running — heat creep causes progressive clicking that gets worse over time.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="clogged-nozzle.html">Clogged nozzle / hotend jam</a></li><li><a href="filament-grinding.html">Filament grinding / stripped filament</a></li><li><a href="heat-creep.html">Heat creep — jams that start after the first hour</a></li><li><a href="inconsistent-extrusion.html">Inconsistent extrusion — lines vary in width</a></li><li><a href="not-extruding-at-start.html">Not extruding at the start of the print</a></li><li><a href="over-extrusion.html">Over-extrusion — messy, blobby prints</a></li><li><a href="popping-wet-filament.html">Popping / crackling sounds — wet filament</a></li><li><a href="stops-extruding-mid-print.html">Stops extruding mid-print</a></li><li><a href="under-extrusion.html">Under-extrusion — gaps, thin walls, weak prints</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

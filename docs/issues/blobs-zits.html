@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blobs and zits on the surface | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="blobs, zits, bumps, pimples, dots on surface">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-surface-quality">Surface Quality</a> &rsaquo; Blobs and zits on the surface</nav>
+<h1>Blobs and zits on the surface</h1>
+<div class="meta-row"><span class="badge">Surface Quality</span> <span class="badge hw">Mostly slicer</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> These happen at layer starts/stops — tune retraction and enable wipe. If blobs sit exactly on the Z-seam line, align the seam to a corner first.</aside>
+<h2>What it looks like</h2>
+<p>Small round bumps scattered on the print's surface, often in a vertical line (that's the Z-seam) or at corners where the print head paused.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Pressure buildup released at layer change.</strong> The extruder stops, pressure oozes a blob, then it starts the next layer.</li><li><strong>Retraction settings off</strong> — too little retraction before the travel, or too slow a "retract on layer change."</li><li><strong>Z-seam placed randomly</strong>, scattering the start/stop blobs across the surface instead of hiding them.</li><li><strong>Over-extrusion</strong> making every imperfection bigger.</li><li><strong>Too-high temperature</strong> increasing ooze.</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Align the Z-seam</strong> to the sharpest corner or the back of the model (slicer: "seam position: aligned" / "rear").</li><li><strong>Tune retraction</strong> (see Stringing) — blobs and strings share a root cause.</li><li><strong>Enable wipe</strong> (nozzle wipes while retracting) and a small <strong>coast</strong> distance so pressure bleeds off before the layer ends.</li><li><strong>Lower temp 5°C</strong> and verify flow isn't over 100%.</li><li>If blobs appear at the <em>same</em> spots as travel endpoints, "avoid crossing perimeters" helps keep ooze inside the part.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="curling-corners.html">Curling or rough corners (overheating)</a></li><li><a href="gaps-top-layers.html">Gaps or holes in top layers (pillowing)</a></li><li><a href="ringing.html">Ringing / ghosting — ripples echoing from edges</a></li><li><a href="scars-top-surface.html">Scars and drag marks on the top surface</a></li><li><a href="small-features-missing.html">Small features not printing / missing details</a></li><li><a href="stringing.html">Stringing / oozing — fine hairs between parts</a></li><li><a href="z-banding.html">Visible lines on the sides — Z-banding / inconsistent layers</a></li><li><a href="z-seam.html">Visible Z-seam line</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

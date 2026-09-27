@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SV01 Upgrades — Worth It vs. Skip It | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="Honest cost/benefit on Sovol SV01 upgrades: auto bed leveling, silent board, PEI sheet, enclosure, and which mods to skip. Community-consensus only.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="index.html#diagnose">Diagnose</a>
+      <a href="setup.html">Setup</a>
+      <a href="filament.html">Filament</a>
+      <a href="maintenance.html">Maintenance</a>
+      <a href="upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="index.html">Guide</a> &rsaquo; SV01 Upgrades — Worth It vs. Skip It</nav>
+<h1>SV01 Upgrades — Worth It vs. Skip It</h1>
+<p class="lede">Honest cost/benefit on Sovol SV01 upgrades: auto bed leveling, silent board, PEI sheet, enclosure, and which mods to skip. Community-consensus only.</p>
+<p>Rule of thumb: upgrade to fix a problem you actually have, not one the internet told you to expect. The SV01 prints well stock. Below is the community consensus, with honest uncertainty marked.</p>
+<h2>Worth it</h2>
+<p><strong>Auto bed leveling probe (BLTouch / CR-Touch) — the #1 quality-of-life upgrade.</strong> The SV01 has a probe mount and firmware support. Manual 4-knob leveling works, but a probe with mesh leveling compensates for a slightly warped glass bed automatically. Genuine probes only — clone probes are the #1 source of "my ABL made things worse" posts. <em>Uncertainty: exact mount/firmware steps vary by board revision; follow Sovol's download page for your specific board.</em></p>
+<p><strong>PEI spring-steel sheet.</strong> The stock glass bed works, but glass is heavy (more ringing at speed), slow to heat evenly, and PETG can bond to it permanently. A PEI sheet sticks when hot and releases when cool, flexes parts off, and heats faster. Keep the glass as a backup.</p>
+<p><strong>Silent mainboard (e.g. SKR Mini E3).</strong> The stock Creality 2.2 board's stepper drivers whine. A 32-bit board with TMC2209 drivers makes the printer nearly silent and is close to drop-in (same mounting holes, same connectors on most revisions). Bonus: modern Marlin, more flash space for features like linear advance. <em>Uncertainty: verify your exact board revision's wiring before ordering; some SV01s shipped with different boards.</em></p>
+<p><strong>Better part-cooling duct (printed).</strong> A well-designed fan duct (e.g. a community Petsfang/Satsana-style duct for the SV01) improves overhangs and bridging noticeably for the cost of a few grams of PETG. Print it in PETG or ABS, not PLA — PLA ducts soften next to the hotend.</p>
+<p><strong>Filament dryer / dry box.</strong> If you print PETG or TPU, or live somewhere humid, this fixes more "mystery" problems than any hardware mod. A cheap food dehydrator works; print-during-drying boxes are the convenient endgame.</p>
+<p><strong>Bed insulation (cork or foil-backed foam under the bed).</strong> Faster heatup, more even temps, less energy. Cheap and genuinely effective, especially for 80°C+ PETG/ABS bed temps.</p>
+<p><strong>Raspberry Pi + OctoPrint (or Klipper).</strong> Wireless printing, webcam monitoring, time-lapses, and full terminal access for PID tuning and calibration. Note the SV01 quirk: the Pi back-powers the printer over USB, which can cause a temp-fault on reboot — fix by taping over the USB 5V pin or powering the Pi down first.</p>
+<h2>Situational</h2>
+<p><strong>Enclosure.</strong> Required for reliable ABS/ASA, nice for PETG in drafty rooms, pointless for PLA (PLA likes cooling). Even a cheap tent enclosure or a large box works. If you never print ABS, skip it.</p>
+<p><strong>Hardened steel nozzle.</strong> Only needed for abrasive filaments (carbon fiber, glow-in-the-dark, wood-fill). For plain PLA/PETG/TPU it's a downgrade — steel conducts heat worse, so you print hotter for the same result.</p>
+<p><strong>Dual-gear extruder.</strong> The stock Titan-style extruder is decent. Upgrade only if you're getting persistent grinding/stripping that isn't a clog.</p>
+<p><strong>LED lighting.</strong> Cheap, genuinely useful for watching first layers and spotting problems. Not a print-quality mod, just quality of life.</p>
+<p><strong>Linear advance / input shaping.</strong> Free firmware features (on a 32-bit board) that sharpen corners and reduce ringing. Worth enabling <em>after</em> mechanical basics are dialed in — they can't fix loose belts.</p>
+<h2>Skip it</h2>
+<p><strong>Linear rails.</strong> Enormous cost and effort for near-zero visible improvement on a printer this size. The V-wheel system is fine when maintained.</p>
+<p><strong>Expensive all-metal hotend swaps.</strong> The SV01's hotend already handles its full 250°C range. A premium hotend doesn't make PLA print better.</p>
+<p><strong>Dual extrusion / multi-material units.</strong> Complexity explosion on a budget Cartesian. If you want multi-color, that's a different printer purchase, not a mod.</p>
+<p><strong>The laser engraver module.</strong> Fun toy, unrelated to print quality, and it spends most of its life in a drawer. (No judgment if you want it anyway.)</p>
+<p><strong>"Upgrading" to a bigger nozzle for speed without understanding flow limits.</strong> A 0.6–0.8 mm nozzle is a legitimate choice, but the stock hotend can only melt plastic so fast — you'll hit underextrusion on large layers. It's a tradeoff, not a free speedup.</p>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "";</script>
+<script src="search.js"></script>
+</body>
+</html>

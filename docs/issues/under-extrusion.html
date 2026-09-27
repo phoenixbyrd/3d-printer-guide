@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Under-extrusion — gaps, thin walls, weak prints | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="under extrusion, underextrusion, gaps, thin walls, missing layers, weak print, sparse">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-extrusion-problems">Extrusion Problems</a> &rsaquo; Under-extrusion — gaps, thin walls, weak prints</nav>
+<h1>Under-extrusion — gaps, thin walls, weak prints</h1>
+<div class="meta-row"><span class="badge">Extrusion Problems</span> <span class="badge hw">Both — start with slicer/temp, then hardware (clogs, extruder)</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> Raise nozzle temp 5–10°C and check that e-steps are calibrated. Most under-extrusion is temperature, a partial clog, or uncalibrated e-steps.</aside>
+<h2>What it looks like</h2>
+<p>Gaps between perimeters and infill, visibly thin or broken wall lines, layers that don't quite touch, prints that feel light and crush easily. Infill looks sparse even at normal percentages.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Nozzle temperature too low.</strong> The plastic can't melt fast enough to keep up — the most common cause.</li><li><strong>Partial clog.</strong> Debris or heat-degraded filament narrowing the nozzle.</li><li><strong>E-steps not calibrated.</strong> The extruder pushes less filament than commanded.</li><li><strong>Flow rate set too low</strong> in the slicer for this spool.</li><li><strong>Printing too fast</strong> for the hotend's melt capacity (volumetric flow limit exceeded).</li><li><strong>Filament diameter wrong in slicer</strong> (e.g. 2.85 mm setting with 1.75 mm filament, or a spool that actually measures 1.68 mm).</li><li><strong>Extruder slipping</strong> — weak idler tension, worn gear, or grinding (see those issues).</li><li><strong>Wet filament</strong> can mimic under-extrusion with rough, inconsistent lines.</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Calibrate e-steps</strong>, then <strong>flow rate</strong> (Setup guide) — do these once properly and rule them out forever.</li><li><strong>Raise temp 5–10°C</strong> and/or <strong>slow down</strong> 20%. If it clears up, you were exceeding the hotend's melt rate.</li><li><strong>Measure your filament</strong> in several spots with calipers; enter the real average in the slicer.</li><li><strong>Cold pull</strong> to clear a partial clog (see Clogged nozzle).</li><li>Check extruder idler tension and gear cleanliness — tighten until the gear bites without deforming the filament.</li><li>Dry the spool if you hear popping or see frosty, rough extrusion.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="clogged-nozzle.html">Clogged nozzle / hotend jam</a></li><li><a href="extruder-clicking.html">Extruder clicking / skipping steps</a></li><li><a href="filament-grinding.html">Filament grinding / stripped filament</a></li><li><a href="heat-creep.html">Heat creep — jams that start after the first hour</a></li><li><a href="inconsistent-extrusion.html">Inconsistent extrusion — lines vary in width</a></li><li><a href="not-extruding-at-start.html">Not extruding at the start of the print</a></li><li><a href="over-extrusion.html">Over-extrusion — messy, blobby prints</a></li><li><a href="popping-wet-filament.html">Popping / crackling sounds — wet filament</a></li><li><a href="stops-extruding-mid-print.html">Stops extruding mid-print</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

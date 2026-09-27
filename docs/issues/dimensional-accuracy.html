@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dimensional inaccuracy — parts don't fit | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="dimensional accuracy, parts don't fit, holes too small, tolerance, wrong size">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-strength-structure">Strength & Structure</a> &rsaquo; Dimensional inaccuracy — parts don't fit</nav>
+<h1>Dimensional inaccuracy — parts don't fit</h1>
+<div class="meta-row"><span class="badge">Strength & Structure</span> <span class="badge hw">Both — calibrate first, then compensate in slicer</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> Print a 20 mm calibration cube and measure with calipers. If X/Y/Z are off, it's steps or flow; if only holes are small, it's the classic hole-shrinkage slicer compensation.</aside>
+<h2>What it looks like</h2>
+<p>A 20 mm cube measures 20.4 mm. Holes print smaller than designed. Pins don't fit holes. Assemblies that should slot together don't.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Flow rate too high</strong> — every wall slightly too thick adds up (most common).</li><li><strong>Hole shrinkage</strong> — holes print ~0.2–0.4 mm smaller than modeled because the plastic pulls inward as the circular toolpath cools. This is normal physics, not a malfunction.</li><li><strong>E-steps / flow uncalibrated</strong> (see Setup).</li><li><strong>Elephant's foot</strong> making the base oversized.</li><li><strong>Thermal expansion differences</strong> between materials (ABS shrinks ~1–2% overall).</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Calibrate e-steps and flow</strong> first — measure the 20 mm cube on all axes.</li><li><strong>Horizontal expansion compensation:</strong> most slicers offer "hole horizontal expansion" — try +0.1 to +0.2 mm on holes, and slight negative overall expansion if everything runs big.</li><li><strong>Design for FDM:</strong> clearance of 0.2–0.3 mm per side for sliding fits; drill/ream critical holes after printing.</li><li>For ABS/ASA, apply a <strong>shrinkage factor</strong> (scale the model 100.5–101%) — or better, print a test piece and measure the actual shrinkage of your spool.</li><li>Fix elephant's foot separately if the base is the only oversized part.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="brittle-prints.html">Prints snap too easily / brittle</a></li><li><a href="gaps-infill-wall.html">Gaps between infill and walls</a></li><li><a href="layer-separation.html">Layer separation / splitting (delamination)</a></li><li><a href="layer-shifting.html">Layer shifting — layers misaligned</a></li><li><a href="poor-bridging.html">Poor bridging — sagging strands across gaps</a></li><li><a href="poor-overhangs.html">Rough / drooping overhangs</a></li><li><a href="poor-surface-above-supports.html">Poor surface above supports</a></li><li><a href="weak-infill.html">Weak, stringy infill</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gaps or holes in top layers (pillowing) | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="gaps in top, holes top layer, pillowing, top surface holes, sparse top">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-surface-quality">Surface Quality</a> &rsaquo; Gaps or holes in top layers (pillowing)</nav>
+<h1>Gaps or holes in top layers (pillowing)</h1>
+<div class="meta-row"><span class="badge">Surface Quality</span> <span class="badge hw">Mostly slicer</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> Add more top layers (5–6 at 0.2 mm) and bump infill to 20%+. Pillowing is almost always too few top layers over too-sparse infill.</aside>
+<h2>What it looks like</h2>
+<p>The top surface has small holes, dips, or a "pillow" texture where the top layers sagged between infill lines instead of bridging them.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Too few top layers.</strong> 2–3 top layers at 0.2 mm can't bridge infill gaps cleanly.</li><li><strong>Infill too sparse</strong> — the spans between infill lines are too wide to bridge.</li><li><strong>Under-extrusion</strong> making the top layers thinner than intended.</li><li><strong>Too much cooling too fast</strong> on the top layers, freezing them before they bond across the gap.</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Use 5–6 top layers</strong> (about 1–1.2 mm total) and <strong>≥15–20% infill</strong>.</li><li><strong>Slow down</strong> the top layers and reduce fan slightly so they bond and bridge.</li><li>Verify flow calibration — under-extrusion shows up worst on top surfaces.</li><li>Infill patterns with shorter spans (gyroid, cubic) pillow less than straight lines at the same percentage.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="blobs-zits.html">Blobs and zits on the surface</a></li><li><a href="curling-corners.html">Curling or rough corners (overheating)</a></li><li><a href="ringing.html">Ringing / ghosting — ripples echoing from edges</a></li><li><a href="scars-top-surface.html">Scars and drag marks on the top surface</a></li><li><a href="small-features-missing.html">Small features not printing / missing details</a></li><li><a href="stringing.html">Stringing / oozing — fine hairs between parts</a></li><li><a href="z-banding.html">Visible lines on the sides — Z-banding / inconsistent layers</a></li><li><a href="z-seam.html">Visible Z-seam line</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

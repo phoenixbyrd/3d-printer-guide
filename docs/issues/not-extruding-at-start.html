@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Not extruding at the start of the print | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="not extruding, no filament at start, prime, purge, skirt missing, first lines missing">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-extrusion-problems">Extrusion Problems</a> &rsaquo; Not extruding at the start of the print</nav>
+<h1>Not extruding at the start of the print</h1>
+<div class="meta-row"><span class="badge">Extrusion Problems</span> <span class="badge hw">Mostly slicer/start G-code</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> Add a skirt or brim (3+ loops) and a purge line in your start G-code — the nozzle needs to prime before the real print starts.</aside>
+<h2>What it looks like</h2>
+<p>The print head moves but nothing comes out for the first seconds or first lines. The skirt is patchy or missing, and the actual part starts with gaps. After a bit, plastic flows normally.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>No priming.</strong> Filament oozed out during heatup, leaving the nozzle empty when the print starts.</li><li><strong>Nozzle parked too long hot before starting</strong>, oozing out the melt zone.</li><li><strong>Retraction at the end of the previous print</strong> left the filament pulled back with nothing primed.</li><li><strong>Old/cold start:</strong> the hotend wasn't fully up to temp when extrusion began.</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Add a skirt</strong> (3 loops, 3–4 mm from the part) — it primes the nozzle and confirms bed level before the part starts.</li><li><strong>Add a purge line to start G-code</strong> (see Setup guide) — a thick line at the bed edge that gets flow going.</li><li><strong>Preheat and wait</strong> 1–2 minutes after reaching temp so the whole melt zone is stable.</li><li>Manually extrude 10–15 mm right before starting if your workflow allows.</li><li>If the problem persists past the first layer, it's not priming — see Under-extrusion or Clogged nozzle.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="clogged-nozzle.html">Clogged nozzle / hotend jam</a></li><li><a href="extruder-clicking.html">Extruder clicking / skipping steps</a></li><li><a href="filament-grinding.html">Filament grinding / stripped filament</a></li><li><a href="heat-creep.html">Heat creep — jams that start after the first hour</a></li><li><a href="inconsistent-extrusion.html">Inconsistent extrusion — lines vary in width</a></li><li><a href="over-extrusion.html">Over-extrusion — messy, blobby prints</a></li><li><a href="popping-wet-filament.html">Popping / crackling sounds — wet filament</a></li><li><a href="stops-extruding-mid-print.html">Stops extruding mid-print</a></li><li><a href="under-extrusion.html">Under-extrusion — gaps, thin walls, weak prints</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

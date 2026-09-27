@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nozzle too close — first layer squished or scraping | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="too close, scraping, squished, nozzle dragging, rough first layer, filament curling, z offset too low">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-first-layer-bed-adhesion">First Layer & Bed Adhesion</a> &rsaquo; Nozzle too close — first layer squished or scraping</nav>
+<h1>Nozzle too close — first layer squished or scraping</h1>
+<div class="meta-row"><span class="badge">First Layer & Bed Adhesion</span> <span class="badge hw">Hardware/setup (Z-offset, leveling)</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> Raise Z (babystep up) in 0.05 mm steps while printing a first-layer test until the lines lay flat without ridges.</aside>
+<h2>What it looks like</h2>
+<p>The first layer is translucent-thin, the nozzle visibly plows through just-laid plastic leaving ridges, or you hear scraping. Sometimes filament curls up around the nozzle instead of sticking, because there's no gap for it to exit into. The extruder may click from the backpressure.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Z-offset too low.</strong> The nozzle is starting below the correct first-layer height.</li><li><strong>Bed leveled with too much paper drag.</strong> "Light drag" means the paper moves freely with slight resistance — not pinned.</li><li><strong>Warped bed high spot.</strong> Glass beds can bow; one area prints fine while a high spot scrapes.</li><li><strong>First layer height set too low in the slicer</strong> combined with an aggressive "squish" — e.g. 0.1 mm first layer with 150% width.</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Babystep Z up</strong> during a first-layer test print, 0.05 mm at a time, until lines are smooth and separate slightly rather than ridged.</li><li><strong>Re-level with lighter paper drag</strong>, hot, two full loops.</li><li><strong>Set a sane first layer:</strong> 0.2 mm height at 100–120% width is forgiving; don't go below 0.15 mm until everything else is dialed in.</li><li>If one spot always scrapes while the rest is fine, that's a bed warp — a probe with mesh leveling (see Upgrades) compensates for it, or avoid that bed region for critical prints.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="elephants-foot.html">Elephant's foot — bottom layers flare out</a></li><li><a href="first-layer-wont-stick.html">First layer won't stick to the bed</a></li><li><a href="spaghetti.html">Spaghetti — print detached mid-print (bird's nest)</a></li><li><a href="warping.html">Warping — corners lift off the bed</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

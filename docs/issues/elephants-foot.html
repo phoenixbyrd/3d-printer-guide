@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elephant's foot — bottom layers flare out | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="elephant foot, flared base, bottom layers wider, squished bottom">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-first-layer-bed-adhesion">First Layer & Bed Adhesion</a> &rsaquo; Elephant's foot — bottom layers flare out</nav>
+<h1>Elephant's foot — bottom layers flare out</h1>
+<div class="meta-row"><span class="badge">First Layer & Bed Adhesion</span> <span class="badge hw">Both — usually slicer/first-layer setup, sometimes bed too hot</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> Raise the nozzle slightly (Z-offset up 0.05 mm) and make sure the bed isn't running hotter than 60°C for PLA.</aside>
+<h2>What it looks like</h2>
+<p>The first few layers of the print splay outward like a bell bottom, making the base wider than the design. Parts that should fit together don't, because the bottom is oversized.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>First layer squished too hard.</strong> Too-low Z-offset or excessive first-layer width/height pushes extra plastic outward.</li><li><strong>Bed too hot.</strong> A 70°C+ bed keeps the bottom layers soft so the weight above squashes them outward (common when people crank the bed to fix adhesion).</li><li><strong>Nozzle too hot on layer one</strong>, same softening effect.</li><li><strong>Missing chamfer in the model.</strong> Sharp 90° bottom edges show elephant's foot worst; a 0.5 mm chamfer hides it.</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Dial back the squish:</strong> raise Z-offset slightly and use 0.2 mm / 100–120% for the first layer instead of extreme settings.</li><li><strong>Bed at 60°C for PLA</strong> (not higher) once adhesion is otherwise working.</li><li><strong>Slicer compensation:</strong> most slicers have an "elephant's foot compensation" / "initial layer horizontal expansion" setting — try −0.1 to −0.2 mm.</li><li><strong>Design around it:</strong> add a small chamfer to the model's base; it hides any residual flare.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="first-layer-wont-stick.html">First layer won't stick to the bed</a></li><li><a href="nozzle-too-close.html">Nozzle too close — first layer squished or scraping</a></li><li><a href="spaghetti.html">Spaghetti — print detached mid-print (bird's nest)</a></li><li><a href="warping.html">Warping — corners lift off the bed</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

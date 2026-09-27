@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clogged nozzle / hotend jam | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="clogged, clog, jammed, jam, blocked nozzle, no extrusion, stuck filament">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-extrusion-problems">Extrusion Problems</a> &rsaquo; Clogged nozzle / hotend jam</nav>
+<h1>Clogged nozzle / hotend jam</h1>
+<div class="meta-row"><span class="badge">Extrusion Problems</span> <span class="badge hw">Hardware</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> Heat to 10°C above normal, try pushing filament through by hand. If it won't go, do a cold pull before disassembling anything.</aside>
+<h2>What it looks like</h2>
+<p>Little or nothing comes out of the nozzle. The extruder clicks or grinds, filament won't load, or extrusion starts fine then chokes off. Sometimes a thin curl of plastic emerges but no real flow.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Debris in the nozzle</strong> — burnt filament, dust, or a contaminant from a cheap spool.</li><li><strong>Heat creep</strong> — the heat break got too hot, filament softened too high up, and solidified into a plug (see Heat creep).</li><li><strong>Gap between nozzle and heat break / PTFE liner.</strong> Molten plastic pools in the gap and hardens into a ring that blocks flow. This is the classic cause of <em>recurring</em> clogs.</li><li><strong>Printing too cold</strong> for the speed — the melt zone can't keep up and pressure backs up.</li><li><strong>Retraction too long</strong> on a direct drive, pulling molten plastic up into the cold zone where it solidifies.</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>The needle first:</strong> heat to printing temp +10°C and work the acupuncture needle (came with the printer) up through the nozzle tip.</li><li><strong>Cold pull (atomic pull):</strong> heat to ~220°C for PLA, push filament in, cool to ~90°C, then yank it out firmly. Repeat until the pulled tip comes out clean and shaped like the nozzle interior.</li><li><strong>If clogs keep returning:</strong> disassemble the hotend hot. Check the PTFE liner end is cut perfectly square and butts firmly against the nozzle — reseat with the nozzle tightened <em>at temperature</em> against the liner/heat break, not against the heater block.</li><li><strong>Reduce retraction</strong> to 1–2 mm (direct drive) and verify the hotend fan runs whenever the hotend is hot.</li><li><strong>Last resort:</strong> swap the nozzle. Brass nozzles are consumables — a $1 nozzle beats an hour of fighting a stubborn clog.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="extruder-clicking.html">Extruder clicking / skipping steps</a></li><li><a href="filament-grinding.html">Filament grinding / stripped filament</a></li><li><a href="heat-creep.html">Heat creep — jams that start after the first hour</a></li><li><a href="inconsistent-extrusion.html">Inconsistent extrusion — lines vary in width</a></li><li><a href="not-extruding-at-start.html">Not extruding at the start of the print</a></li><li><a href="over-extrusion.html">Over-extrusion — messy, blobby prints</a></li><li><a href="popping-wet-filament.html">Popping / crackling sounds — wet filament</a></li><li><a href="stops-extruding-mid-print.html">Stops extruding mid-print</a></li><li><a href="under-extrusion.html">Under-extrusion — gaps, thin walls, weak prints</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

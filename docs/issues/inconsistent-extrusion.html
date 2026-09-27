@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inconsistent extrusion — lines vary in width | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="inconsistent extrusion, varying line width, pulsing, uneven extrusion, wavy lines">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-extrusion-problems">Extrusion Problems</a> &rsaquo; Inconsistent extrusion — lines vary in width</nav>
+<h1>Inconsistent extrusion — lines vary in width</h1>
+<div class="meta-row"><span class="badge">Extrusion Problems</span> <span class="badge hw">Both</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> Watch the extruder gear during a slow print — rhythmic variation points to the extruder/hotend, random variation points to filament or temperature.</aside>
+<h2>What it looks like</h2>
+<p>Wall lines visibly swell and thin along their length, or the surface has a subtle pulsing texture. Not the regular pattern of ringing — this is irregular.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Temperature swinging</strong> (bad PID tune) — plastic viscosity follows temperature directly.</li><li><strong>Partial clog</strong> intermittently restricting flow.</li><li><strong>Filament diameter varying</strong> along the spool (cheap filament) — measure several meters.</li><li><strong>Extruder gear slipping intermittently</strong> — dust-packed teeth or marginal idler tension.</li><li><strong>Wet filament</strong> — steam bubbles make extrusion sputter (listen for popping).</li><li><strong>Spool drag varying</strong> as the spool rotates (tangled or tight-wound spool).</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>PID tune</strong> the hotend (M303 + M500) and watch the temp graph for flatness.</li><li>Cold pull to rule out a partial clog.</li><li>Measure filament diameter at several points; if it varies more than ±0.05 mm, the spool is the problem.</li><li>Clean the extruder gear, set idler tension, and make sure the spool unwinds freely.</li><li>Dry the spool if there's any popping or frosty texture.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="clogged-nozzle.html">Clogged nozzle / hotend jam</a></li><li><a href="extruder-clicking.html">Extruder clicking / skipping steps</a></li><li><a href="filament-grinding.html">Filament grinding / stripped filament</a></li><li><a href="heat-creep.html">Heat creep — jams that start after the first hour</a></li><li><a href="not-extruding-at-start.html">Not extruding at the start of the print</a></li><li><a href="over-extrusion.html">Over-extrusion — messy, blobby prints</a></li><li><a href="popping-wet-filament.html">Popping / crackling sounds — wet filament</a></li><li><a href="stops-extruding-mid-print.html">Stops extruding mid-print</a></li><li><a href="under-extrusion.html">Under-extrusion — gaps, thin walls, weak prints</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

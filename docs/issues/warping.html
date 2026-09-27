@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Warping — corners lift off the bed | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="warping, warp, corners lifting, curling up, edges peel">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-first-layer-bed-adhesion">First Layer & Bed Adhesion</a> &rsaquo; Warping — corners lift off the bed</nav>
+<h1>Warping — corners lift off the bed</h1>
+<div class="meta-row"><span class="badge">First Layer & Bed Adhesion</span> <span class="badge hw">Mostly slicer/environment (cooling, brim, temps); material-dependent</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> Add a brim, raise the bed temp 5–10°C, and eliminate drafts. Warping is plastic shrinking as it cools — keep it warm and anchored.</aside>
+<h2>What it looks like</h2>
+<p>Corners or edges of the print curl upward off the bed as the print progresses, sometimes dramatically. The bottom of the part ends up banana-shaped. Worst with ABS/ASA, occasional with PLA on large flat parts, rare with PETG.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Uneven cooling / drafts.</strong> The top layers cool and shrink while the bottom stays warm — the part pulls itself up. A vent, window, or AC is the classic trigger.</li><li><strong>Bed too cool for the material.</strong> ABS at 80°C will warp; it wants 100–110°C.</li><li><strong>No brim/raft on a large flat part.</strong> Small contact area + shrinkage = lift.</li><li><strong>Too much part cooling too early</strong>, especially on ABS/ASA (fan should be off or very low).</li><li><strong>Dirty or unlevel bed</strong> reducing the grip that's fighting the shrinkage.</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Add a brim</strong> (8–15 mm) — cheap insurance that massively increases holding area. A raft is the heavy-duty option for warp-prone materials.</li><li><strong>Raise bed temp</strong> to the top of the material's range (PLA 60–65°C, PETG 85°C, ABS 100–110°C) and let it heat-soak 5+ minutes.</li><li><strong>Eliminate drafts.</strong> Close windows/vents near the printer. For ABS/ASA, an enclosure isn't optional — it's the fix.</li><li><strong>Cooling:</strong> PLA can keep its fan; ABS/ASA should run 0% fan for the first several layers, then max ~25%.</li><li><strong>Mouse ears:</strong> small disc "ears" added at sharp corners in the slicer give extra anchor exactly where lift starts.</li><li>If warping persists on large ABS parts even with an enclosure, the part geometry may just be warp-prone — split it, add relief cuts, or switch to ASA/PETG.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="elephants-foot.html">Elephant's foot — bottom layers flare out</a></li><li><a href="first-layer-wont-stick.html">First layer won't stick to the bed</a></li><li><a href="nozzle-too-close.html">Nozzle too close — first layer squished or scraping</a></li><li><a href="spaghetti.html">Spaghetti — print detached mid-print (bird's nest)</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

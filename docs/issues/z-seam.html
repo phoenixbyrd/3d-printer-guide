@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visible Z-seam line | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="z seam, seam line, vertical line, layer start line">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-surface-quality">Surface Quality</a> &rsaquo; Visible Z-seam line</nav>
+<h1>Visible Z-seam line</h1>
+<div class="meta-row"><span class="badge">Surface Quality</span> <span class="badge hw">Slicer</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> Set the seam to "aligned" and put it on the sharpest corner or the back of the model. A seam is unavoidable — the goal is hiding it.</aside>
+<h2>What it looks like</h2>
+<p>A faint vertical line or row of tiny bumps running up the print where each layer started and stopped.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Every layer has a start/stop point</strong> — a tiny imperfection there is physically unavoidable.</li><li><strong>Seam set to "random"</strong>, scattering the marks across the whole surface.</li><li><strong>Retraction/wipe not tuned</strong>, making each seam point blob.</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Seam position: aligned</strong> (or "rear") so all layer starts stack in one line, placed on the least visible face or sharpest corner.</li><li><strong>"Smart hiding" / "nearest"</strong> seam modes in modern slicers tuck it into concave corners automatically.</li><li>Tune retraction + wipe + coast so each start point is as clean as possible (see Blobs and zits).</li><li>For display pieces, plan light sanding on the seam line — 5 minutes with fine sandpaper erases it.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="blobs-zits.html">Blobs and zits on the surface</a></li><li><a href="curling-corners.html">Curling or rough corners (overheating)</a></li><li><a href="gaps-top-layers.html">Gaps or holes in top layers (pillowing)</a></li><li><a href="ringing.html">Ringing / ghosting — ripples echoing from edges</a></li><li><a href="scars-top-surface.html">Scars and drag marks on the top surface</a></li><li><a href="small-features-missing.html">Small features not printing / missing details</a></li><li><a href="stringing.html">Stringing / oozing — fine hairs between parts</a></li><li><a href="z-banding.html">Visible lines on the sides — Z-banding / inconsistent layers</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

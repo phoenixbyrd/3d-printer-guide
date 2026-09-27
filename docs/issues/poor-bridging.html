@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Poor bridging — sagging strands across gaps | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="bridging, sagging bridges, droopy bridges, strands sagging">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-strength-structure">Strength & Structure</a> &rsaquo; Poor bridging — sagging strands across gaps</nav>
+<h1>Poor bridging — sagging strands across gaps</h1>
+<div class="meta-row"><span class="badge">Strength & Structure</span> <span class="badge hw">Mostly slicer</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> Slow bridges to 20–25 mm/s with 100% fan. Bridging is the one move where slow + cold + full air is always right.</aside>
+<h2>What it looks like</h2>
+<p>Strands spanning a gap droop, sag, or break instead of pulling straight across. Undersides of bridges look stringy.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Bridging too fast</strong> — the strand needs to be pulled taut, not laid.</li><li><strong>Insufficient cooling</strong> — the strand must freeze mid-air.</li><li><strong>Too hot</strong> — runny plastic can't span.</li><li><strong>Gap too long</strong> for the material (over ~30–40 mm even good bridging struggles).</li><li><strong>Under-extrusion</strong> leaving strands too thin to span.</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Bridge speed 20–25 mm/s, fan 100%</strong>, and use the cool end of the filament's range.</li><li>Enable the slicer's <strong>bridge settings</strong> (thicker bridge lines, slower bridge infill).</li><li>Verify flow — thin strands can't bridge.</li><li>For very long spans, redesign with a chamfer or add a sacrificial support — physics has limits.</li><li>Print a bridging test to dial in the exact settings for your spool.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="brittle-prints.html">Prints snap too easily / brittle</a></li><li><a href="dimensional-accuracy.html">Dimensional inaccuracy — parts don't fit</a></li><li><a href="gaps-infill-wall.html">Gaps between infill and walls</a></li><li><a href="layer-separation.html">Layer separation / splitting (delamination)</a></li><li><a href="layer-shifting.html">Layer shifting — layers misaligned</a></li><li><a href="poor-overhangs.html">Rough / drooping overhangs</a></li><li><a href="poor-surface-above-supports.html">Poor surface above supports</a></li><li><a href="weak-infill.html">Weak, stringy infill</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

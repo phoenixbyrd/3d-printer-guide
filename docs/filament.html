@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Filament Guide | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="PLA, PETG, ABS/ASA, and TPU on the Sovol SV01 — temperatures, bed temps, enclosure needs, gotchas, storage and drying.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="index.html#diagnose">Diagnose</a>
+      <a href="setup.html">Setup</a>
+      <a href="filament.html">Filament</a>
+      <a href="maintenance.html">Maintenance</a>
+      <a href="upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="index.html">Guide</a> &rsaquo; Filament Guide</nav>
+<h1>Filament Guide</h1>
+<p class="lede">PLA, PETG, ABS/ASA, and TPU on the Sovol SV01 — temperatures, bed temps, enclosure needs, gotchas, storage and drying.</p>
+<h2>Quick reference</h2>
+<div class='table-wrap'><table>
+<tr><th>Filament</th><th>Nozzle</th><th>Bed</th><th>Fan</th><th>Enclosure</th><th>Notes</th></tr>
+<tr><td>PLA</td><td>200–220°C</td><td>60°C</td><td>100%</td><td>No</td><td>Easiest. Start here.</td></tr>
+<tr><td>PLA+ / Tough PLA</td><td>205–225°C</td><td>60°C</td><td>100%</td><td>No</td><td>Stronger, slightly hotter.</td></tr>
+<tr><td>PETG</td><td>230–250°C</td><td>80–90°C</td><td>30–50%</td><td>Helpful</td><td>Sticky — use glue stick on glass as a <em>release</em> agent.</td></tr>
+<tr><td>TPU (95A)</td><td>220–240°C</td><td>50–60°C</td><td>50–100%</td><td>No</td><td>Print slow (20–30 mm/s). Direct drive shines here.</td></tr>
+<tr><td>ABS</td><td>240–260°C</td><td>100–110°C</td><td>0–25%</td><td>Strongly recommended</td><td>Warps badly in drafts. SV01 is open-frame — hard mode.</td></tr>
+<tr><td>ASA</td><td>240–260°C</td><td>100–110°C</td><td>0–25%</td><td>Strongly recommended</td><td>Like ABS but UV-stable. Same warping battle.</td></tr>
+</table></div>
+<p><strong>Hard limits of the SV01:</strong> 250°C max nozzle and 100°C max bed (per spec). That rules out polycarbonate, nylon (needs 250–270°C+ and a dry box), and anything exotic. Stick to the table above.</p>
+<p>Always run a temperature tower for each new spool — the ranges above are starting points, and brands vary by ±10°C.</p>
+<h2>PLA — the default</h2>
+<p>PLA is forgiving, odorless, and needs no enclosure. It is also brittle (thin parts snap) and softens around 55–60°C, so don't use it for car parts or anything near heat. On the SV01's glass bed, 60°C with a clean bed usually sticks perfectly and releases when cool. If PLA pops and crackles while printing, it's wet — dry it (see below).</p>
+<h2>PETG — strong and a little fussy</h2>
+<p>PETG is tougher than PLA and handles ~80°C, great for functional parts. Its quirks:</p>
+<ul><li><strong>It bonds to glass permanently.</strong> Always put down glue stick (or blue tape) on the SV01's glass bed as a release layer, or you'll chip the glass prying a part off.</li><li><strong>It oozes and strings.</strong> Dry the spool, lower temp to the cool end of the range, and increase retraction slightly vs your PLA value.</li><li><strong>First layer:</strong> print it a touch higher (bigger Z gap) than PLA — squishing PETG too hard makes a mess that welds to the nozzle.</li><li><strong>Cooling:</strong> 30–50% fan. Full fan makes layer adhesion worse; no fan makes overhangs droop.</li></ul>
+<h2>ABS / ASA — experts only on an open printer</h2>
+<p>ABS warps because it shrinks as it cools, and any draft makes it worse. The SV01 has no enclosure, so ABS is genuinely difficult: expect curled corners and split layers unless you build or buy an enclosure (even a large cardboard box or a cheap tent enclosure helps enormously). If you try it: 100–110°C bed, brim or raft, zero part cooling for the first layers, and keep the room warm and draft-free. ASA behaves the same but survives sunlight — the right pick for outdoor parts.</p>
+<p><strong>Safety:</strong> ABS/ASA fumes (styrene) are unpleasant. Ventilate the room or vent the enclosure outside.</p>
+<h2>TPU — the direct-drive payoff</h2>
+<p>Bowden printers fight flexible filament; the SV01's direct drive extruder eats it for breakfast. Still, respect the rules:</p>
+<ul><li>Print <strong>slow</strong>: 20–30 mm/s for 95A TPU. Speed is the #1 cause of TPU jams.</li><li><strong>Minimal retraction</strong>: 0.5–1.0 mm. Long retractions with soft filament cause jams above the heat break.</li><li>Disable or minimize Z-hop. Keep the filament path constrained — no gaps for the soft filament to buckle into.</li><li>Softer TPUs (85A and below) are much harder; 95A is the sweet spot for a stock extruder.</li></ul>
+<h2>Wet filament: the invisible problem</h2>
+<p>Filament absorbs moisture from the air — PLA in weeks, PETG and TPU in days, nylon in hours. Symptoms: popping/crackling sounds while printing, rough frosty surfaces, stringing that won't tune away, weak layer bonds, brittle PLA that snaps when you bend it.</p>
+<p><strong>Fix:</strong> dry the spool. A food dehydrator or a dedicated filament dryer at 50–60°C for 4–6 hours (check the filament's max — don't melt PLA at 70°C+). The print-during-drying dryers that feed the printer directly are the convenient endgame.</p>
+<p><strong>Storage:</strong> fresh spools go into sealed bags or bins with desiccant. Toss a cheap hygrometer in the bin — if it reads over ~30% RH, recharge or replace the desiccant. For humid climates (or if you print PETG/TPU often), a dry box you print <em>from</em> is worth building: a sealed tub with a desiccant and a PTFE tube outlet.</p>
+<h2>Nozzle compatibility</h2>
+<p>Brass nozzles (stock) are fine for PLA, PETG, TPU, ABS. <strong>Abrasive filaments</strong> — glow-in-the-dark, carbon fiber, glass fiber, wood-fill, marble — will chew through a brass nozzle in a single print, widening it and ruining tolerances. Use a hardened steel nozzle for those (and bump temps ~5–10°C since steel conducts heat worse).</p>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "";</script>
+<script src="search.js"></script>
+</body>
+</html>

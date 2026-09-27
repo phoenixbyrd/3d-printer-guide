@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scars and drag marks on the top surface | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="scars, drag marks, nozzle drag, combing scars, lines on top">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-surface-quality">Surface Quality</a> &rsaquo; Scars and drag marks on the top surface</nav>
+<h1>Scars and drag marks on the top surface</h1>
+<div class="meta-row"><span class="badge">Surface Quality</span> <span class="badge hw">Mostly slicer</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> Enable Z-hop (0.2 mm) and check "avoid crossing perimeters." Scars are the nozzle traveling through already-printed plastic.</aside>
+<h2>What it looks like</h2>
+<p>Visible lines or gouges dragged across the top surface where the nozzle traveled between print areas, sometimes with a little blob at the end of the scar.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>No Z-hop</strong> — the nozzle drags at layer height across the print on travel moves.</li><li><strong>Combing/travel within the part</strong> dragging the nozzle over top surfaces.</li><li><strong>Over-extrusion</strong> leaving the surface slightly proud so the nozzle catches it.</li><li><strong>Slight over-squish on top layers</strong> (too many top layers over extruding).</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Enable Z-hop</strong> 0.2–0.4 mm (small — big hops cause blobs and stringing).</li><li><strong>"Avoid crossing perimeters"</strong> / combing set to keep travels inside infill, not across top surfaces.</li><li>Verify flow calibration — a correctly extruded top surface sits <em>below</em> the nozzle path.</li><li><strong>Ironing</strong> (slicer feature) can erase minor scarring on flat top surfaces as a finishing pass.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="blobs-zits.html">Blobs and zits on the surface</a></li><li><a href="curling-corners.html">Curling or rough corners (overheating)</a></li><li><a href="gaps-top-layers.html">Gaps or holes in top layers (pillowing)</a></li><li><a href="ringing.html">Ringing / ghosting — ripples echoing from edges</a></li><li><a href="small-features-missing.html">Small features not printing / missing details</a></li><li><a href="stringing.html">Stringing / oozing — fine hairs between parts</a></li><li><a href="z-banding.html">Visible lines on the sides — Z-banding / inconsistent layers</a></li><li><a href="z-seam.html">Visible Z-seam line</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

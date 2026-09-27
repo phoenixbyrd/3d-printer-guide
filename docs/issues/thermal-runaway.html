@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heating errors — thermal runaway, mintemp, bed won't reach temp | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="thermal runaway, heating failed, mintemp, maxtemp, thermal error, printer halted, bed not heating, nozzle not heating">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-printer-errors">Printer Errors</a> &rsaquo; Heating errors — thermal runaway, mintemp, bed won't reach temp</nav>
+<h1>Heating errors — thermal runaway, mintemp, bed won't reach temp</h1>
+<div class="meta-row"><span class="badge">Printer Errors</span> <span class="badge hw">Hardware — treat with respect, this is the fire-safety system working</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> STOP and inspect. Thermal runaway means the printer detected heating it couldn't control — check the thermistor and heater cartridge wiring before resetting and continuing.</aside>
+<h2>What it looks like</h2>
+<p>The printer halts mid-print (or on heatup) with an error: THERMAL RUNAWAY, HEATING FAILED, MINTEMP, or MAXTEMP. Or the bed/nozzle heats very slowly or never reaches the target.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Thermistor loose or damaged.</strong> If the temp sensor isn't reading the real block temp, the printer either overheats blindly (dangerous — the firmware caught it) or reads wrong and errors out. MINTEMP usually means the thermistor circuit is open/broken; MAXTEMP means shorted.</li><li><strong>Heater cartridge failing</strong> — heats slowly or not at all.</li><li><strong>Wiring break</strong> where cables flex (bed cable chain area, hotend cable bundle). Intermittent errors that come and go with movement = broken wire.</li><li><strong>Part-cooling fan blasting the nozzle/block</strong> (missing silicone sock + 100% fan on a cold day) can outpace the heater — "heating failed" on an otherwise fine printer.</li><li><strong>Bed won't reach high temps:</strong> the stock bed draws a lot of power; 100°C for ABS is near its limit, worse in a cold room. Insulating under the bed helps.</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Power off and inspect.</strong> Look at the thermistor (tiny glass bead in the heat block) — is it seated? Wires intact? Check the heater cartridge wires too. Do not bypass thermal runaway protection in firmware, ever.</li><li><strong>Wiggle test:</strong> with the printer on but cold, gently flex the wire bundles while watching the temp display. Jumping readings = broken wire — replace the thermistor/cartridge (they're cheap; keep spares).</li><li><strong>Reseat or replace the thermistor</strong>, making sure it's fully inserted and secured (not crushed — overtightening the screw breaks them).</li><li>Keep the <strong>silicone sock on</strong> the block and don't aim the part-cooling fan at the nozzle itself.</li><li>For slow beds: <strong>insulate under the bed</strong> (cork/foil foam), enclose drafts, and accept that 100°C takes a while — preheat the bed 10 minutes before the print.</li><li>If errors persist with new thermistor + cartridge, the board's MOSFET or ADC may be failing — board replacement time.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li>None in this category yet.</li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

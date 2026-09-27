@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>First layer won't stick to the bed | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="not sticking, adhesion, first layer, bed adhesion, peeling, lifting, won't adhere">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-first-layer-bed-adhesion">First Layer & Bed Adhesion</a> &rsaquo; First layer won't stick to the bed</nav>
+<h1>First layer won't stick to the bed</h1>
+<div class="meta-row"><span class="badge">First Layer & Bed Adhesion</span> <span class="badge hw">Mostly hardware/setup (leveling, cleanliness), sometimes slicer (first-layer speed/temp)</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> Clean the bed with dish soap and water, then re-level hot with the paper method. A dirty bed and a too-high nozzle cause the vast majority of adhesion failures.</aside>
+<h2>What it looks like</h2>
+<p>The nozzle lays down plastic but it curls up, drags around, or peels off the bed instead of staying put. Sometimes the first layer looks fine for a few lines then lifts. The print fails within the first few minutes, often turning into a blob on the nozzle.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Nozzle too far from the bed.</strong> The single most common cause. If the first layer lines don't squash together and you can see gaps between them, the Z gap is too large.</li><li><strong>Dirty bed.</strong> Finger oils, dust, and old adhesive residue kill adhesion on glass. Even a bed that "looks clean" often isn't.</li><li><strong>Bed not level.</strong> One corner sticks while the opposite corner fails — classic unlevel bed.</li><li><strong>Bed too cool.</strong> PLA below ~55°C or printing on a bed that hasn't heat-soaked won't grip. The sensor reads the heater, not the glass surface — give it 5 minutes after reaching temp.</li><li><strong>First layer printed too fast.</strong> 60 mm/s on layer one is asking for trouble.</li><li><strong>Wrong surface for the material.</strong> Bare glass + PETG can bond permanently; textured PEI + PLA usually just works.</li><li><strong>Drafts / cold room.</strong> A vent or open window chilling the bed edge causes localized lifting.</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Wash the bed.</strong> Warm water + dish soap, rinse thoroughly, air dry. Handle by the edges afterward. This alone fixes a shocking number of "adhesion problems."</li><li><strong>Re-level hot.</strong> Heat bed to 60°C and nozzle to 200°C, then do the paper method at all four corners twice. See the Setup guide.</li><li><strong>Lower the Z gap.</strong> Live-adjust (babystep) Z down during a first-layer test until the extruded lines merge into a smooth sheet with no gaps.</li><li><strong>Slow the first layer</strong> to 20 mm/s and raise first-layer line width to 120% in the slicer.</li><li><strong>Raise bed temp</strong> 5–10°C and let it soak 5 minutes before starting.</li><li><strong>Use adhesion helpers for difficult prints:</strong> a brim (8–10 mm) for small footprints, glue stick on glass for PETG (as a release agent) or for extra PLA grip, blue painter's tape as a reliable textured surface.</li><li><strong>Kill the draft.</strong> Close the window, move the printer away from the vent. For ABS/ASA, this means an enclosure — see the Filament guide.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="elephants-foot.html">Elephant's foot — bottom layers flare out</a></li><li><a href="nozzle-too-close.html">Nozzle too close — first layer squished or scraping</a></li><li><a href="spaghetti.html">Spaghetti — print detached mid-print (bird's nest)</a></li><li><a href="warping.html">Warping — corners lift off the bed</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

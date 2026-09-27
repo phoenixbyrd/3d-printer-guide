@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weak, stringy infill | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="weak infill, stringy infill, thin infill, infill not bonding">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-strength-structure">Strength & Structure</a> &rsaquo; Weak, stringy infill</nav>
+<h1>Weak, stringy infill</h1>
+<div class="meta-row"><span class="badge">Strength & Structure</span> <span class="badge hw">Mostly slicer</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> Slow down infill speed and raise temp 5°C. Infill is usually printed fastest and hottest-demand — it's where under-extrusion shows first.</aside>
+<h2>What it looks like</h2>
+<p>Inside the print, the infill is wispy, broken, or doesn't connect to itself or the walls. The part feels hollow-weak even at 20%+ infill.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Infill speed too high</strong> — infill often prints at 2x wall speed, exceeding the hotend's melt rate.</li><li><strong>Under-extrusion</strong> showing up first where it's least visible.</li><li><strong>Infill temp effectively lower</strong> — some slicers drop temp for infill; combined with speed, it can't bond.</li><li><strong>Infill pattern with long bridges</strong> (e.g. sparse lines) that can't span.</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Cap infill speed</strong> at ~60–80 mm/s and raise temp 5°C.</li><li>Rule out general under-extrusion (e-steps, flow, partial clog).</li><li>Switch to a self-supporting pattern (gyroid, cubic) at 15–20% — stronger per gram than sparse lines.</li><li>If the part needs real strength, add walls instead of infill — 4–5 walls beats 40% infill for most functional parts.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="brittle-prints.html">Prints snap too easily / brittle</a></li><li><a href="dimensional-accuracy.html">Dimensional inaccuracy — parts don't fit</a></li><li><a href="gaps-infill-wall.html">Gaps between infill and walls</a></li><li><a href="layer-separation.html">Layer separation / splitting (delamination)</a></li><li><a href="layer-shifting.html">Layer shifting — layers misaligned</a></li><li><a href="poor-bridging.html">Poor bridging — sagging strands across gaps</a></li><li><a href="poor-overhangs.html">Rough / drooping overhangs</a></li><li><a href="poor-surface-above-supports.html">Poor surface above supports</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

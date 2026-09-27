@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heat creep — jams that start after the first hour | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="heat creep, jam after hours, progressive clogging, gets worse over time">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-extrusion-problems">Extrusion Problems</a> &rsaquo; Heat creep — jams that start after the first hour</nav>
+<h1>Heat creep — jams that start after the first hour</h1>
+<div class="meta-row"><span class="badge">Extrusion Problems</span> <span class="badge hw">Hardware (cooling), sometimes slicer (retraction)</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> Confirm the hotend fan spins at full speed whenever the nozzle is hot. A dead or slow fan is the #1 heat creep cause.</aside>
+<h2>What it looks like</h2>
+<p>Prints start perfectly and degrade over time — extrusion gets spotty, the extruder starts clicking an hour or two in, and eventually it jams completely. Short prints are fine; long prints always fail. The jammed filament, when pulled, has a thickened "mushroom" end above where the melt zone should be.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Hotend fan failing, slow, or wired wrong.</strong> The fan must run at 100% whenever the hotend is above ~50°C. Even a fan at 70% can cause creep over hours.</li><li><strong>Excessive retraction</strong> dragging molten plastic up into the heat break repeatedly, where it solidifies into a plug.</li><li><strong>High ambient temperature</strong> (hot room, enclosure with PLA) reducing the temperature gradient the heat break needs.</li><li><strong>Missing or damaged silicone sock</strong>, letting heat radiate onto the heat break area.</li><li><strong>Printing PLA too hot</strong> (above ~220°C) increases the creep risk.</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Verify the hotend fan.</strong> Watch it at print start — full blast, no hesitation. Replace it at the first sign of bearing noise or slow spin; it's a cheap part that causes expensive failures.</li><li><strong>Cut retraction</strong> to 1 mm or less temporarily — if long prints suddenly succeed, retraction was contributing.</li><li><strong>Keep the silicone sock on</strong> and intact.</li><li>Print at the cool end of the filament's good range (use your temperature tower result).</li><li>In hot rooms, point a small external fan at the printer's hotend area (not at the print — that causes warping).</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="clogged-nozzle.html">Clogged nozzle / hotend jam</a></li><li><a href="extruder-clicking.html">Extruder clicking / skipping steps</a></li><li><a href="filament-grinding.html">Filament grinding / stripped filament</a></li><li><a href="inconsistent-extrusion.html">Inconsistent extrusion — lines vary in width</a></li><li><a href="not-extruding-at-start.html">Not extruding at the start of the print</a></li><li><a href="over-extrusion.html">Over-extrusion — messy, blobby prints</a></li><li><a href="popping-wet-filament.html">Popping / crackling sounds — wet filament</a></li><li><a href="stops-extruding-mid-print.html">Stops extruding mid-print</a></li><li><a href="under-extrusion.html">Under-extrusion — gaps, thin walls, weak prints</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

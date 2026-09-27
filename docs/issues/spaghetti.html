@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spaghetti — print detached mid-print (bird's nest) | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="spaghetti, bird nest, birdnest, detached, knocked off, print failed halfway, stringy mess, air printing">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-first-layer-bed-adhesion">First Layer & Bed Adhesion</a> &rsaquo; Spaghetti — print detached mid-print (bird's nest)</nav>
+<h1>Spaghetti — print detached mid-print (bird's nest)</h1>
+<div class="meta-row"><span class="badge">First Layer & Bed Adhesion</span> <span class="badge hw">Mostly adhesion/setup; sometimes slicer (no Z-hop, supports failing)</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> It's an adhesion failure until proven otherwise — clean and re-level the bed, add a brim, and slow down. Then check for nozzle collisions.</aside>
+<h2>What it looks like</h2>
+<p>You come back to a tangle of loose filament strands — the print detached from the bed partway through and the nozzle kept extruding into thin air. Sometimes there's a half-printed part lying loose in the mess.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Adhesion gave up mid-print.</strong> The first layer held weakly, then shrinkage, a tall part's leverage, or vibration worked it loose hours in.</li><li><strong>Nozzle collided with the print.</strong> A curled-over overhang, a blob, or a warped corner sticks up; the nozzle catches it and knocks the part off. Tall thin parts are most vulnerable.</li><li><strong>Supports failed.</strong> A support tower detached, then the nozzle dragged the whole thing around.</li><li><strong>Filament ran out / extruder jammed</strong>, then the nozzle (printing nothing) still knocked the part loose — less common, check the extruder too.</li><li><strong>Excessive speed / acceleration</strong> shaking a marginally-adhered part loose.</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Fix adhesion properly</strong> (see "First layer won't stick"): clean bed, hot level, correct Z gap, brim on anything tall or small-footprint.</li><li><strong>Enable a small Z-hop</strong> (0.2–0.4 mm) so the nozzle lifts over already-printed plastic on travel moves.</li><li><strong>Check for the collision source:</strong> look at where the failure started — a curled overhang means cooling/speed issues; a blob means retraction/temp issues. Fix that and the spaghetti stops.</li><li><strong>Slow down</strong> outer walls and enable "avoid printed parts on travel" if your slicer offers it.</li><li><strong>For tall thin parts:</strong> brim is mandatory, consider printing slower, and make sure the part-cooling fan isn't blasting one side (uneven cooling warps tall parts into the nozzle path).</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="elephants-foot.html">Elephant's foot — bottom layers flare out</a></li><li><a href="first-layer-wont-stick.html">First layer won't stick to the bed</a></li><li><a href="nozzle-too-close.html">Nozzle too close — first layer squished or scraping</a></li><li><a href="warping.html">Warping — corners lift off the bed</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

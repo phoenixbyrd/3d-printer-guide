@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Small features not printing / missing details | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="small features missing, details not printing, tiny parts missing, holes filled in">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-surface-quality">Surface Quality</a> &rsaquo; Small features not printing / missing details</nav>
+<h1>Small features not printing / missing details</h1>
+<div class="meta-row"><span class="badge">Surface Quality</span> <span class="badge hw">Mostly slicer</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> Check the slicer preview first — if the feature is missing in the preview, it's a slicer setting, not the printer.</aside>
+<h2>What it looks like</h2>
+<p>Tiny holes print filled in, thin walls vanish, small text is unreadable, or fine details are missing entirely — while the rest of the print is fine.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Slicer filtering out small features.</strong> "Minimum feature size" or too-coarse slicing resolution drops details smaller than the nozzle can draw.</li><li><strong>Nozzle too large</strong> for the detail — a 0.4 mm nozzle can't resolve 0.2 mm features.</li><li><strong>Over-extrusion</strong> filling in small gaps and holes.</li><li><strong>Too-hot printing</strong> melting fine details before they set.</li><li><strong>Model issues</strong> — non-manifold geometry or details below the printer's physical resolution.</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Check the sliced preview</strong> layer by layer. If detail is missing there, adjust slicer settings: reduce minimum line width, enable "print thin walls" / "detect thin walls."</li><li><strong>Slow down</strong> on small perimeters and enable small-feature cooling (min layer time).</li><li>Verify flow isn't over 100% — over-extrusion erases fine negative details first.</li><li>For genuinely tiny work, switch to a <strong>0.25 mm nozzle</strong> (and accept slower prints).</li><li>Run the model through a mesh repair (Windows 3D Builder, Meshmixer, or the slicer's built-in fix) — broken geometry confuses slicers into dropping features.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="blobs-zits.html">Blobs and zits on the surface</a></li><li><a href="curling-corners.html">Curling or rough corners (overheating)</a></li><li><a href="gaps-top-layers.html">Gaps or holes in top layers (pillowing)</a></li><li><a href="ringing.html">Ringing / ghosting — ripples echoing from edges</a></li><li><a href="scars-top-surface.html">Scars and drag marks on the top surface</a></li><li><a href="stringing.html">Stringing / oozing — fine hairs between parts</a></li><li><a href="z-banding.html">Visible lines on the sides — Z-banding / inconsistent layers</a></li><li><a href="z-seam.html">Visible Z-seam line</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

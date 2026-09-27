@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maintenance Schedule | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="Daily, weekly, and monthly checklists to keep the Sovol SV01 printing reliably — cleaning, lubrication, belt checks, and wear parts.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="index.html#diagnose">Diagnose</a>
+      <a href="setup.html">Setup</a>
+      <a href="filament.html">Filament</a>
+      <a href="maintenance.html">Maintenance</a>
+      <a href="upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="index.html">Guide</a> &rsaquo; Maintenance Schedule</nav>
+<h1>Maintenance Schedule</h1>
+<p class="lede">Daily, weekly, and monthly checklists to keep the Sovol SV01 printing reliably — cleaning, lubrication, belt checks, and wear parts.</p>
+<p>Most "random" print failures are maintenance failures wearing a costume. A ten-minute routine prevents the majority of clogs, shifts, and adhesion mysteries.</p>
+<h2>Every print (30 seconds)</h2>
+<ul><li><strong>Glance at the first layer.</strong> Stay for the first 2–3 layers of any print. If it's not sticking or looks wrong, cancel now — filament is cheaper than a 9-hour spaghetti sculpture.</li><li><strong>Clear the bed.</strong> Remove all skirt/brim remnants and debris before starting. A stray blob under the next print's first layer ruins adhesion.</li></ul>
+<h2>Weekly (or every ~20 print hours)</h2>
+<ul><li><strong>Clean the bed.</strong> Wash the glass with warm water and dish soap, rinse well, air dry. For quick touch-ups between washes, wipe with isopropyl alcohol (90%+). Touch the print surface as little as possible — finger oils kill adhesion.</li><li><strong>Check belt tension.</strong> X and Y belts should twang, not flap. If a belt has stretched, re-tension at the mounts.</li><li><strong>Wiggle test.</strong> With steppers engaged, grab the hotend carriage and the bed and try to rock them. Any play means an eccentric nut needs a quarter-turn.</li><li><strong>Inspect the nozzle.</strong> Look for plastic baked onto the outside (a sign of a gap between nozzle and heat break, or oozing from too-hot temps). Brass nozzles are wear items — if the tip looks rounded or prints have lost fine detail, swap it (they're cheap).</li><li><strong>Check the extruder gear.</strong> Open the extruder idler and look for ground-up filament dust in the gear teeth. Brush it out. Dust here means the gear is chewing — check idler tension and for partial clogs.</li><li><strong>Fan check.</strong> Both the hotend fan (always on) and part-cooling fan should spin freely and quietly. A dying hotend fan causes heat creep (see troubleshooting).</li></ul>
+<h2>Monthly (or every ~100 print hours)</h2>
+<ul><li><strong>Lubricate the Z lead screws.</strong> Wipe them clean with a dry cloth first (old grease collects dust and becomes grinding paste), then apply a thin film of PTFE/silicone grease or light machine oil. <strong>Dual Z on the SV01:</strong> do both screws, then re-check that the gantry is level side to side.</li><li><strong>Check all frame bolts.</strong> Vibration loosens things. Go over the gantry bolts, bed knobs area, and spool holder with the Allen keys — snug, not gorilla-tight.</li><li><strong>Inspect wiring.</strong> Look for chafing where the bed cable flexes and where hotend wires pass the frame. Catching a worn wire beats a short.</li><li><strong>Check the PTFE liner.</strong> Even direct-drive hotends have a short PTFE tube inside. If you're getting mysterious jams with PLA, a heat-deformed liner is a suspect — it should be cut perfectly square and seated firmly against the nozzle.</li><li><strong>Clean the lead screw brass nuts.</strong> Brush out dust, re-lube lightly.</li></ul>
+<h2>Wear parts to keep on hand</h2>
+<p>These are cheap and will fail eventually. Having spares turns a week of downtime into a 15-minute fix:</p>
+<ul><li>Brass nozzles, 0.4 mm (5-pack)</li><li>One spare PTFE tube + tube cutter (or a pre-cut liner for the SV01 hotend)</li><li>A spare thermistor and heater cartridge (wiring is the usual failure, not the part itself)</li><li>Silicone socks for the hotend</li><li>GT2 belt (a meter is plenty) and a couple of spare V-wheels</li></ul>
+<h2>What NOT to do</h2>
+<ul><li>Don't use WD-40 on lead screws or rails — it's a solvent, not a lubricant, and it strips existing grease.</li><li>Don't overtighten the nozzle cold and then heat it — always do the final nozzle snug at printing temperature, holding the heat block with a wrench so you don't snap the heat break.</li><li>Don't oil the V-wheels themselves — they ride dry on the extrusion. Oil attracts dust and makes them slip.</li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "";</script>
+<script src="search.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Curling or rough corners (overheating) | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="curling corners, rough corners, overheated corners, deformed corners, melty edges">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-surface-quality">Surface Quality</a> &rsaquo; Curling or rough corners (overheating)</nav>
+<h1>Curling or rough corners (overheating)</h1>
+<div class="meta-row"><span class="badge">Surface Quality</span> <span class="badge hw">Mostly slicer (cooling, speed)</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> More cooling + slower on small layers. Corners curl when the plastic is still soft as the nozzle comes back around — it needs time or air to set.</aside>
+<h2>What it looks like</h2>
+<p>Sharp corners curl upward or look melted and deformed, especially on small parts or overhanging corners. The nozzle may catch the curled corner on the next pass.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Insufficient cooling</strong> — the part-cooling fan too low or poorly aimed.</li><li><strong>Layer time too short</strong> — on small layers the nozzle returns before the plastic sets.</li><li><strong>Printing too hot</strong> for the geometry.</li><li><strong>Nozzle dragging</strong> through the soft corner (too close, or over-extrusion).</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Max out part cooling</strong> after the first couple of layers (100% for PLA).</li><li><strong>Set a minimum layer time</strong> (10–15 s) so the slicer slows down or lifts on tiny layers. Printing two copies of a small part also buys cooling time.</li><li><strong>Slow down</strong> outer walls on detailed sections.</li><li><strong>Lower temp</strong> 5°C toward the cool end of the filament's range.</li><li>Check the part-cooling duct actually aims at the nozzle tip — a misaligned or melted duct (print ducts in PETG/ABS, not PLA) silently kills cooling.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="blobs-zits.html">Blobs and zits on the surface</a></li><li><a href="gaps-top-layers.html">Gaps or holes in top layers (pillowing)</a></li><li><a href="ringing.html">Ringing / ghosting — ripples echoing from edges</a></li><li><a href="scars-top-surface.html">Scars and drag marks on the top surface</a></li><li><a href="small-features-missing.html">Small features not printing / missing details</a></li><li><a href="stringing.html">Stringing / oozing — fine hairs between parts</a></li><li><a href="z-banding.html">Visible lines on the sides — Z-banding / inconsistent layers</a></li><li><a href="z-seam.html">Visible Z-seam line</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

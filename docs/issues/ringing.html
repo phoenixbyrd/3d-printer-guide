@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ringing / ghosting — ripples echoing from edges | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="ringing, ghosting, ripples, echoes, vibration artifacts, wavy walls near corners">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-surface-quality">Surface Quality</a> &rsaquo; Ringing / ghosting — ripples echoing from edges</nav>
+<h1>Ringing / ghosting — ripples echoing from edges</h1>
+<div class="meta-row"><span class="badge">Surface Quality</span> <span class="badge hw">Hardware (belts, frame) + slicer (speed/accel)</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> Slow down outer walls to 30–40 mm/s. If the ripples shrink, it's ringing (vibration) — then tighten belts and reduce acceleration.</aside>
+<h2>What it looks like</h2>
+<p>Faint ripples on flat walls that echo the shape of a nearby corner, hole, or detail — like a reflection. They're perfectly regular and fade with distance from the feature.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Printer vibration.</strong> The heavy direct-drive toolhead on the SV01 changes direction at a corner and the whole gantry rings like a bell. Loose belts make it worse.</li><li><strong>High acceleration / jerk</strong> on direction changes.</li><li><strong>High outer-wall speed</strong> giving the vibration more energy.</li><li><strong>Loose frame or wobbly table</strong> amplifying the resonance.</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li><strong>Slow the outer wall</strong> to 30–40 mm/s — the single biggest lever, since visible walls are what matter.</li><li><strong>Tension X/Y belts</strong> properly and check the frame bolts are snug.</li><li><strong>Reduce acceleration</strong> (try 500–800 mm/s² for outer walls) and jerk settings.</li><li><strong>Stiffen the setup:</strong> printer on a solid surface (not a wobbly table), consider a concrete paver under it to absorb vibration.</li><li><strong>Input shaping</strong> (firmware feature, needs a 32-bit board upgrade on the SV01) cancels resonance in software — the advanced fix after mechanics are sound.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="blobs-zits.html">Blobs and zits on the surface</a></li><li><a href="curling-corners.html">Curling or rough corners (overheating)</a></li><li><a href="gaps-top-layers.html">Gaps or holes in top layers (pillowing)</a></li><li><a href="scars-top-surface.html">Scars and drag marks on the top surface</a></li><li><a href="small-features-missing.html">Small features not printing / missing details</a></li><li><a href="stringing.html">Stringing / oozing — fine hairs between parts</a></li><li><a href="z-banding.html">Visible lines on the sides — Z-banding / inconsistent layers</a></li><li><a href="z-seam.html">Visible Z-seam line</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>

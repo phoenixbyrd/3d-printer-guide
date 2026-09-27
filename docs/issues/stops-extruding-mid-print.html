@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stops extruding mid-print | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="stops extruding, stops mid print, air printing, extrusion stopped halfway">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="../index.html#diagnose">Diagnose</a>
+      <a href="../setup.html">Setup</a>
+      <a href="../filament.html">Filament</a>
+      <a href="../maintenance.html">Maintenance</a>
+      <a href="../upgrades.html">Upgrades</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="../index.html">Guide</a> &rsaquo; <a href="../index.html#cat-extrusion-problems">Extrusion Problems</a> &rsaquo; Stops extruding mid-print</nav>
+<h1>Stops extruding mid-print</h1>
+<div class="meta-row"><span class="badge">Extrusion Problems</span> <span class="badge hw">Hardware</span></div>
+<aside class="callout"><strong>&#9889; Check this first:</strong> Check whether the extruder gear is still turning against unmoving filament (jam/grind) or the filament snapped — each points to a different fix.</aside>
+<h2>What it looks like</h2>
+<p>The print was going fine, then the nozzle starts moving with nothing coming out — "printing air." The part is incomplete from some layer upward.</p>
+<h2>Causes, most likely first</h2>
+<ol><li><strong>Heat creep</strong> — the most common mid-print stoppage. The heat break warms up over time, filament softens too high, and forms a plug. Prints fail at roughly the same height/time repeatedly.</li><li><strong>Filament tangle on the spool</strong> — the spool binds, the extruder can't pull, filament strips or the extruder skips until it gives up.</li><li><strong>Filament runout sensor false trigger or actual runout.</strong> (The SV01 has a runout sensor — check it's not triggering on a dusty sensor or a thin spot.)</li><li><strong>Extruder overheating</strong> — the stepper driver overheats and shuts down intermittently, resuming later. Feels random.</li><li><strong>Partial clog that finally sealed</strong>, or the PTFE liner deforming as the print went on.</li><li><strong>Slicer issue:</strong> a corrupt model or bad G-code (rare — re-slice if nothing mechanical explains it).</li></ol>
+<h2>Fixes, in the order to try them</h2>
+<ol><li>If it always dies at a similar time in: <strong>heat creep.</strong> Verify the hotend fan runs at full speed whenever hot, reduce retraction, lower temp 5°C, and make sure the silicone sock is on (it keeps heat where it belongs).</li><li><strong>Unspool and rewind</strong> the filament neatly; make sure the spool spins freely with no drag — direct-drive extruders are sensitive to spool resistance.</li><li>Check the runout sensor: clean it, verify the filament path through it is smooth.</li><li>Feel the extruder motor after a failure — if it's too hot to touch comfortably, improve cooling/airflow around the electronics.</li><li>Cold pull, check the PTFE liner, and re-slice the model if all else fails.</li></ol>
+<h2 class="related-h">Related issues</h2>
+<ul class="related"><li><a href="clogged-nozzle.html">Clogged nozzle / hotend jam</a></li><li><a href="extruder-clicking.html">Extruder clicking / skipping steps</a></li><li><a href="filament-grinding.html">Filament grinding / stripped filament</a></li><li><a href="heat-creep.html">Heat creep — jams that start after the first hour</a></li><li><a href="inconsistent-extrusion.html">Inconsistent extrusion — lines vary in width</a></li><li><a href="not-extruding-at-start.html">Not extruding at the start of the print</a></li><li><a href="over-extrusion.html">Over-extrusion — messy, blobby prints</a></li><li><a href="popping-wet-filament.html">Popping / crackling sounds — wet filament</a></li><li><a href="under-extrusion.html">Under-extrusion — gaps, thin walls, weak prints</a></li></ul>
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="../sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "../";</script>
+<script src="../search.js"></script>
+</body>
+</html>
