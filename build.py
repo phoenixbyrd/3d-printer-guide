@@ -180,7 +180,7 @@ BASE = """<!DOCTYPE html>
   <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
 </footer>
 <script>const SEARCH_ROOT = "{root}";</script>
-<script src="{root}search.js"></script>
+<script src="{root}search.js?v=2"></script>
 </body>
 </html>
 """
