@@ -31,109 +31,158 @@
 <h1>Print pricing calculator</h1>
 <p class="lede">Price your prints so filament, electricity, and your time are covered — with profit left over.</p>
 <style>
-.pcalc{max-width:560px}
-.pcalc .pc-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin:1rem 0}
-.pcalc .pc-card h2{font-size:1rem;margin:0 0 .6rem;color:var(--accent)}
-.pcalc label{display:block;font-size:.85rem;color:var(--muted);margin:.6rem 0 .25rem}
-.pcalc input{width:100%;background:var(--bg-soft);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:1rem;padding:.6rem .7rem}
-.pcalc input:focus{outline:none;border-color:var(--accent)}
-.pcalc .pc-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
-.pcalc .pc-line{background:var(--bg-soft);border:1px solid var(--border);border-radius:8px;padding:.55rem .7rem;margin:.4rem 0;font-size:.92rem}
-.pcalc .pc-line b{float:right}
-.pcalc .pc-line span{color:var(--muted)}
-.pcalc .pc-total{font-size:1.05rem;border-left:3px solid var(--accent);padding-left:.7rem}
-.pcalc .pc-price{background:var(--accent-soft);border:1px solid var(--accent);border-radius:12px;padding:1.1rem;margin:1rem 0;text-align:center}
-.pcalc .pc-price .p{font-size:2.2rem;font-weight:800;color:var(--accent);margin:.25rem 0}
-.pcalc .pc-price .r{color:var(--muted);font-size:.9rem}
-.pcalc .pc-price .r b{color:var(--text)}
-.pcalc .pc-reset{background:none;border:1px solid var(--border);color:var(--muted);border-radius:999px;padding:.5rem 1rem;font-size:.85rem;cursor:pointer}
+.pcalc{--pc-accent:var(--accent);--pc-radius:16px;max-width:600px}
+.pcalc *{box-sizing:border-box}
+/* Hero result card */
+.pc-hero{background:linear-gradient(135deg,var(--accent) 0%,#b93a0c 100%);border-radius:var(--pc-radius);padding:1.4rem 1.3rem;color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.18);margin:0 0 1rem}
+@media (prefers-color-scheme:dark){.pc-hero{background:linear-gradient(135deg,#ff8a4c 0%,#c25a1e 100%)}}
+.pc-hero .pc-kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;opacity:.85;margin:0 0 .2rem}
+.pc-hero .pc-big{font-size:3rem;font-weight:800;line-height:1.1;margin:0}
+.pc-hero .pc-range{font-size:.9rem;opacity:.9;margin:.4rem 0 .8rem}
+.pc-seg{display:flex;background:rgba(255,255,255,.18);border-radius:999px;padding:4px;gap:4px;max-width:320px}
+.pc-seg button{flex:1;border:0;background:transparent;color:#fff;font-size:.88rem;font-weight:600;padding:.5rem 0;border-radius:999px;cursor:pointer;transition:background .15s}
+.pc-seg button.on{background:rgba(255,255,255,.92);color:#1c2330}
+/* Cards */
+.pc-card{background:var(--card);border:1px solid var(--border);border-radius:var(--pc-radius);padding:1.1rem 1.2rem;margin:0 0 1rem;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.pc-card h2{font-size:.95rem;margin:0 0 .7rem;display:flex;align-items:center;gap:.5rem}
+.pc-card h2 .pc-ico{width:26px;height:26px;border-radius:8px;background:var(--accent-soft);display:inline-flex;align-items:center;justify-content:center;font-size:.95rem}
+.pc-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.pc-field label{display:block;font-size:.78rem;color:var(--muted);margin:0 0 .3rem;font-weight:600}
+.pc-field input{width:100%;background:var(--bg-soft);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-size:1.02rem;padding:.62rem .7rem;transition:border-color .15s}
+.pc-field input:focus{outline:none;border-color:var(--accent)}
+.pc-slider-row{display:flex;align-items:center;gap:.8rem;margin-top:.7rem}
+.pc-slider-row input[type=range]{flex:1;accent-color:var(--accent);height:28px}
+.pc-slider-val{font-weight:700;font-size:1rem;min-width:52px;text-align:right;color:var(--accent)}
+/* Breakdown bars */
+.pc-bar-row{margin:.55rem 0}
+.pc-bar-top{display:flex;justify-content:space-between;font-size:.88rem;margin-bottom:.25rem}
+.pc-bar-top .pc-amt{font-weight:700}
+.pc-bar-track{height:8px;border-radius:99px;background:var(--bg-soft);overflow:hidden}
+.pc-bar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--accent),#f0a35e);width:0;transition:width .25s ease}
+.pc-total-row{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);margin-top:.8rem;padding-top:.8rem;font-weight:700;font-size:1.05rem}
+.pc-total-row .pc-amt{font-size:1.3rem;color:var(--accent)}
+.pc-reset{background:none;border:1.5px solid var(--border);color:var(--muted);border-radius:999px;padding:.55rem 1.2rem;font-size:.88rem;font-weight:600;cursor:pointer}
+.pc-reset:hover{border-color:var(--accent);color:var(--accent)}
+.pc-note{font-size:.85rem;color:var(--muted);background:var(--bg-soft);border-radius:12px;padding:.8rem 1rem;margin-top:1rem}
 </style>
+
 <div class="pcalc">
-  <div class="pc-card">
-    <h2>Filament</h2>
-    <div class="pc-row">
-      <div><label>Filament used (grams)</label><input id="pc-grams" type="number" inputmode="decimal" value="60"></div>
-      <div><label>Waste / failed prints (%)</label><input id="pc-waste" type="number" inputmode="decimal" value="12"></div>
+  <div class="pc-hero">
+    <p class="pc-kicker">Suggested price</p>
+    <p class="pc-big" id="pc-suggest">$0.00</p>
+    <p class="pc-range" id="pc-range">$0.00 &ndash; $0.00 typical range</p>
+    <div class="pc-seg" role="group" aria-label="Markup">
+      <button type="button" data-m="2">2&times;</button>
+      <button type="button" data-m="2.5" class="on">2.5&times;</button>
+      <button type="button" data-m="3">3&times;</button>
     </div>
-    <div class="pc-row">
-      <div><label>Spool price ($)</label><input id="pc-spoolPrice" type="number" inputmode="decimal" value="22"></div>
-      <div><label>Spool weight (grams)</label><input id="pc-spoolGrams" type="number" inputmode="decimal" value="1000"></div>
+  </div>
+
+  <div class="pc-card">
+    <h2><span class="pc-ico">&#x1F9F5;</span>Filament</h2>
+    <div class="pc-grid">
+      <div class="pc-field"><label>Used (grams)</label><input id="pc-grams" type="number" inputmode="decimal" value="60"></div>
+      <div class="pc-field"><label>Spool price ($)</label><input id="pc-spoolPrice" type="number" inputmode="decimal" value="22"></div>
+    </div>
+    <div class="pc-field" style="margin-top:.7rem"><label>Spool weight (grams)</label><input id="pc-spoolGrams" type="number" inputmode="decimal" value="1000"></div>
+    <div class="pc-slider-row">
+      <label style="font-size:.85rem;color:var(--muted);font-weight:600">Waste &amp; failed prints</label>
+      <input type="range" id="pc-waste" min="0" max="40" step="1" value="12" aria-label="Waste percent">
+      <span class="pc-slider-val" id="pc-wasteVal">12%</span>
     </div>
   </div>
+
   <div class="pc-card">
-    <h2>Electricity</h2>
-    <div class="pc-row">
-      <div><label>Print time (hours)</label><input id="pc-hours" type="number" inputmode="decimal" value="6"></div>
-      <div><label>Printer draw (watts)</label><input id="pc-watts" type="number" inputmode="decimal" value="200"></div>
+    <h2><span class="pc-ico">&#x26A1;</span>Electricity</h2>
+    <div class="pc-grid">
+      <div class="pc-field"><label>Print time (hours)</label><input id="pc-hours" type="number" inputmode="decimal" value="6"></div>
+      <div class="pc-field"><label>Printer draw (watts)</label><input id="pc-watts" type="number" inputmode="decimal" value="200"></div>
     </div>
-    <label>Electricity rate ($/kWh) &mdash; MA &asymp; 0.30</label>
-    <input id="pc-kwh" type="number" inputmode="decimal" value="0.30" step="0.01">
+    <div class="pc-field" style="margin-top:.7rem"><label>Rate ($/kWh) &mdash; MA &asymp; 0.30</label><input id="pc-kwh" type="number" inputmode="decimal" value="0.30" step="0.01"></div>
   </div>
+
   <div class="pc-card">
-    <h2>Your time &amp; extras</h2>
-    <div class="pc-row">
-      <div><label>Your labor (minutes)</label><input id="pc-laborMin" type="number" inputmode="decimal" value="20"></div>
-      <div><label>Hourly rate ($/hr)</label><input id="pc-laborRate" type="number" inputmode="decimal" value="12"></div>
+    <h2><span class="pc-ico">&#x23F1;</span>Your time &amp; extras</h2>
+    <div class="pc-grid">
+      <div class="pc-field"><label>Labor (minutes)</label><input id="pc-laborMin" type="number" inputmode="decimal" value="20"></div>
+      <div class="pc-field"><label>Hourly rate ($/hr)</label><input id="pc-laborRate" type="number" inputmode="decimal" value="12"></div>
     </div>
-    <label>Packaging / other costs ($)</label>
-    <input id="pc-other" type="number" inputmode="decimal" value="0" step="0.01">
+    <div class="pc-field" style="margin-top:.7rem"><label>Packaging / other ($)</label><input id="pc-other" type="number" inputmode="decimal" value="0" step="0.01"></div>
   </div>
+
   <div class="pc-card">
-    <h2>True cost</h2>
-    <div class="pc-line"><span>Filament (with waste)</span><b id="pc-cFil">$0.00</b></div>
-    <div class="pc-line"><span>Electricity</span><b id="pc-cElec">$0.00</b></div>
-    <div class="pc-line"><span>Your labor</span><b id="pc-cLabor">$0.00</b></div>
-    <div class="pc-line"><span>Packaging / other</span><b id="pc-cOther">$0.00</b></div>
-    <div class="pc-line pc-total"><span><b>Total cost</b></span><b id="pc-cTotal">$0.00</b></div>
+    <h2><span class="pc-ico">&#x1F4CA;</span>Cost breakdown</h2>
+    <div class="pc-bar-row"><div class="pc-bar-top"><span>Filament</span><span class="pc-amt" id="pc-cFil">$0.00</span></div><div class="pc-bar-track"><div class="pc-bar-fill" id="pc-bFil"></div></div></div>
+    <div class="pc-bar-row"><div class="pc-bar-top"><span>Electricity</span><span class="pc-amt" id="pc-cElec">$0.00</span></div><div class="pc-bar-track"><div class="pc-bar-fill" id="pc-bElec"></div></div></div>
+    <div class="pc-bar-row"><div class="pc-bar-top"><span>Your labor</span><span class="pc-amt" id="pc-cLabor">$0.00</span></div><div class="pc-bar-track"><div class="pc-bar-fill" id="pc-bLabor"></div></div></div>
+    <div class="pc-bar-row"><div class="pc-bar-top"><span>Packaging / other</span><span class="pc-amt" id="pc-cOther">$0.00</span></div><div class="pc-bar-track"><div class="pc-bar-fill" id="pc-bOther"></div></div></div>
+    <div class="pc-total-row"><span>True cost</span><span class="pc-amt" id="pc-cTotal">$0.00</span></div>
   </div>
-  <div class="pc-price">
-    <div class="r">Suggested price (2.5&times; cost)</div>
-    <div class="p" id="pc-suggest">$0.00</div>
-    <div class="r">Range: <b id="pc-low">$0.00</b> (2&times;) &ndash; <b id="pc-high">$0.00</b> (3&times;)</div>
-  </div>
+
   <p><button class="pc-reset" id="pc-reset" type="button">Reset to defaults</button></p>
+  <p class="pc-note">&#x1F4A1; Your costs set the <strong>floor</strong>; the market sets the <strong>ceiling</strong>. Check what similar prints sell for before listing &mdash; if the going price can't clear 2&times; your cost, that print isn't worth selling.</p>
 </div>
+
 <script>
 (function(){
-var DEF={grams:60,waste:12,spoolPrice:22,spoolGrams:1000,hours:6,watts:200,kwh:0.30,laborMin:20,laborRate:12,other:0};
-var IDS=Object.keys(DEF).map(function(k){return "pc-"+k;});
+var DEF={grams:60,spoolPrice:22,spoolGrams:1000,waste:12,hours:6,watts:200,kwh:0.30,laborMin:20,laborRate:12,other:0};
+var markup=2.5;
 function $(id){return document.getElementById(id);}
 function val(id){var v=parseFloat($(id).value);return isNaN(v)?0:v;}
 function money(n){return "$"+n.toFixed(2);}
+function bar(id,frac){$(id).style.width=Math.max(0,Math.min(100,frac*100)).toFixed(1)+"%";}
 function calc(){
   var cFil=val("pc-grams")*(1+val("pc-waste")/100)*(val("pc-spoolPrice")/Math.max(val("pc-spoolGrams"),1));
   var cElec=(val("pc-watts")/1000)*val("pc-hours")*val("pc-kwh");
   var cLabor=(val("pc-laborMin")/60)*val("pc-laborRate");
-  var o=val("pc-other"), total=cFil+cElec+cLabor+o;
-  $("pc-cFil").textContent=money(cFil);
-  $("pc-cElec").textContent=money(cElec);
-  $("pc-cLabor").textContent=money(cLabor);
-  $("pc-cOther").textContent=money(o);
+  var cOther=val("pc-other"), total=cFil+cElec+cLabor+cOther;
+  $("pc-cFil").textContent=money(cFil);$("pc-cElec").textContent=money(cElec);
+  $("pc-cLabor").textContent=money(cLabor);$("pc-cOther").textContent=money(cOther);
   $("pc-cTotal").textContent=money(total);
-  $("pc-suggest").textContent=money(total*2.5);
-  $("pc-low").textContent=money(total*2);
-  $("pc-high").textContent=money(total*3);
-  try{var s={};IDS.forEach(function(id){s[id]=$(id).value;});
+  var max=Math.max(cFil,cElec,cLabor,cOther,0.01);
+  bar("pc-bFil",cFil/max);bar("pc-bElec",cElec/max);bar("pc-bLabor",cLabor/max);bar("pc-bOther",cOther/max);
+  $("pc-suggest").textContent=money(total*markup);
+  $("pc-range").textContent=money(total*2)+" \u2013 "+money(total*3)+" typical range";
+  $("pc-wasteVal").textContent=val("pc-waste")+"%";
+  try{var s={m:markup};Object.keys(DEF).forEach(function(k){s[k]=$("pc-"+k).value;});
     localStorage.setItem("print-pricing",JSON.stringify(s));}catch(e){}
 }
 function load(){
-  try{var s=JSON.parse(localStorage.getItem("print-pricing")||"null");
-    if(s)IDS.forEach(function(id){if(s[id]!==undefined)$(id).value=s[id];});}catch(e){}
+  try{var s=JSON.parse(localStorage.getItem("print-pricing")||"null");if(!s)return;
+    Object.keys(DEF).forEach(function(k){if(s[k]!==undefined)$("pc-"+k).value=s[k];});
+    if(s.m){markup=parseFloat(s.m)||2.5;
+      document.querySelectorAll(".pc-seg button").forEach(function(b){
+        b.classList.toggle("on",parseFloat(b.dataset.m)===markup);});}
+  }catch(e){}
 }
-IDS.forEach(function(id){$(id).addEventListener("input",calc);});
+Object.keys(DEF).forEach(function(k){
+  var el=$("pc-"+k);if(!el)return;
+  el.addEventListener("input",calc);
+  if(el.type==="range")el.addEventListener("change",calc);
+});
+document.querySelectorAll(".pc-seg button").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll(".pc-seg button").forEach(function(x){x.classList.remove("on");});
+    b.classList.add("on");markup=parseFloat(b.dataset.m);calc();});
+});
 $("pc-reset").addEventListener("click",function(){
-  Object.keys(DEF).forEach(function(k){$("pc-"+k).value=DEF[k];});calc();});
+  Object.keys(DEF).forEach(function(k){$("pc-"+k).value=DEF[k];});
+  markup=2.5;
+  document.querySelectorAll(".pc-seg button").forEach(function(x){
+    x.classList.toggle("on",x.dataset.m==="2.5");});
+  calc();});
 load();calc();
 })();
 </script>
+
 <h2>The formula behind it</h2>
 <ul>
-  <li><strong>Filament:</strong> grams used &times; (spool price &divide; spool grams), plus 10&ndash;15% for failed prints, brims, and purge.</li>
+  <li><strong>Filament:</strong> grams used &times; (spool price &divide; spool grams), plus a waste allowance for failed prints, brims, and purge.</li>
   <li><strong>Electricity:</strong> printer kW &times; hours &times; your $/kWh. On an SV01 this is usually the smallest line item &mdash; cents, not dollars.</li>
   <li><strong>Labor:</strong> slicing, support removal, cleanup, photos, listing, and meeting the buyer. This is usually the <em>biggest</em> cost people forget.</li>
 </ul>
 <h2>The 2&ndash;3&times; rule</h2>
-<p>Your costs set the <strong>floor</strong>; the market sets the <strong>ceiling</strong>. Pricing at 2&ndash;3&times; true cost keeps you profitable after the occasional failed print and the fees life throws at you. Before listing, check what similar prints actually sell for &mdash; if the going price can't clear 2&times; your cost, that print isn't worth selling.</p>
+<p>Pricing at 2&ndash;3&times; true cost keeps you profitable after the occasional failed print and the fees life throws at you. Tap the multiplier up top to switch between them &mdash; 2.5&times; is a solid default for Marketplace.</p>
 
 
 </main>
