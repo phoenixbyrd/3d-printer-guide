@@ -137,7 +137,7 @@ BASE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{page_title}</title>
 <meta name="description" content="{meta_desc}">
-<link rel="stylesheet" href="{root}style.css">
+<link rel="stylesheet" href="{root}style.css?v=2">
 </head>
 <body>
 <header class="site-header">
