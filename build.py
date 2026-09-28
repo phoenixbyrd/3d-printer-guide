@@ -143,20 +143,35 @@ BASE = """<!DOCTYPE html>
 <header class="site-header">
   <div class="header-inner">
     <a class="brand" href="{root}index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
-    <nav class="main-nav">
-      <a href="{root}index.html#diagnose">Diagnose</a>
-      <a href="{root}setup.html">Setup</a>
-      <a href="{root}filament.html">Filament</a>
-      <a href="{root}maintenance.html">Maintenance</a>
-      <a href="{root}upgrades.html">Upgrades</a>
-      <a href="{root}pricing.html">Pricing</a>
-    </nav>
     <div class="search-wrap">
       <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
       <div id="search-results" class="search-results" hidden></div>
     </div>
   </div>
 </header>
+<button id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
+<div id="scrim"></div>
+<aside id="drawer" aria-label="Site menu">
+  <div class="d-sec"><div class="d-h">Menu</div>
+    <a href="{root}index.html">Home</a>
+    <a href="{root}index.html#diagnose">Diagnose by symptom</a>
+    <a href="{root}setup.html">Setup &amp; calibration</a>
+    <a href="{root}filament.html">Filament guide</a>
+    <a href="{root}maintenance.html">Maintenance schedule</a>
+    <a href="{root}upgrades.html">SV01 upgrades</a>
+    <a href="{root}pricing.html">Print pricing calculator</a>
+  </div>
+  <div class="d-sec"><div class="d-h">Issues by symptom</div>
+    <a href="{root}index.html#cat-first-layer-bed-adhesion">First layer &amp; bed adhesion</a>
+    <a href="{root}index.html#cat-extrusion-problems">Extrusion problems</a>
+    <a href="{root}index.html#cat-surface-quality">Surface quality</a>
+    <a href="{root}index.html#cat-strength-structure">Strength &amp; structure</a>
+    <a href="{root}index.html#cat-printer-errors">Printer errors</a>
+  </div>
+  <div class="d-sec"><div class="d-h">About</div>
+    <a href="{root}sources.html">Sources &amp; credits</a>
+  </div>
+</aside>
 <main class="content">
 {content}
 </main>
