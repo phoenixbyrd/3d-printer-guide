@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Print pricing calculator | 3D Printer Troubleshooting Guide</title>
+<meta name="description" content="Price your 3D prints: filament, electricity, and labor costs plus a suggested price range.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">&#x1F5A8;&#xFE0F; Print Fix Guide</a>
+    <nav class="main-nav">
+      <a href="index.html#diagnose">Diagnose</a>
+      <a href="setup.html">Setup</a>
+      <a href="filament.html">Filament</a>
+      <a href="maintenance.html">Maintenance</a>
+      <a href="upgrades.html">Upgrades</a>
+      <a href="pricing.html">Pricing</a>
+    </nav>
+    <div class="search-wrap">
+      <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
+      <div id="search-results" class="search-results" hidden></div>
+    </div>
+  </div>
+</header>
+<main class="content">
+
+<nav class="crumbs"><a href="index.html">Guide</a> &rsaquo; Print pricing calculator</nav>
+<h1>Print pricing calculator</h1>
+<p class="lede">Price your prints so filament, electricity, and your time are covered — with profit left over.</p>
+<style>
+.pcalc{max-width:560px}
+.pcalc .pc-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem 1.1rem;margin:1rem 0}
+.pcalc .pc-card h2{font-size:1rem;margin:0 0 .6rem;color:var(--accent)}
+.pcalc label{display:block;font-size:.85rem;color:var(--muted);margin:.6rem 0 .25rem}
+.pcalc input{width:100%;background:var(--bg-soft);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:1rem;padding:.6rem .7rem}
+.pcalc input:focus{outline:none;border-color:var(--accent)}
+.pcalc .pc-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.pcalc .pc-line{background:var(--bg-soft);border:1px solid var(--border);border-radius:8px;padding:.55rem .7rem;margin:.4rem 0;font-size:.92rem}
+.pcalc .pc-line b{float:right}
+.pcalc .pc-line span{color:var(--muted)}
+.pcalc .pc-total{font-size:1.05rem;border-left:3px solid var(--accent);padding-left:.7rem}
+.pcalc .pc-price{background:var(--accent-soft);border:1px solid var(--accent);border-radius:12px;padding:1.1rem;margin:1rem 0;text-align:center}
+.pcalc .pc-price .p{font-size:2.2rem;font-weight:800;color:var(--accent);margin:.25rem 0}
+.pcalc .pc-price .r{color:var(--muted);font-size:.9rem}
+.pcalc .pc-price .r b{color:var(--text)}
+.pcalc .pc-reset{background:none;border:1px solid var(--border);color:var(--muted);border-radius:999px;padding:.5rem 1rem;font-size:.85rem;cursor:pointer}
+</style>
+<div class="pcalc">
+  <div class="pc-card">
+    <h2>Filament</h2>
+    <div class="pc-row">
+      <div><label>Filament used (grams)</label><input id="pc-grams" type="number" inputmode="decimal" value="60"></div>
+      <div><label>Waste / failed prints (%)</label><input id="pc-waste" type="number" inputmode="decimal" value="12"></div>
+    </div>
+    <div class="pc-row">
+      <div><label>Spool price ($)</label><input id="pc-spoolPrice" type="number" inputmode="decimal" value="22"></div>
+      <div><label>Spool weight (grams)</label><input id="pc-spoolGrams" type="number" inputmode="decimal" value="1000"></div>
+    </div>
+  </div>
+  <div class="pc-card">
+    <h2>Electricity</h2>
+    <div class="pc-row">
+      <div><label>Print time (hours)</label><input id="pc-hours" type="number" inputmode="decimal" value="6"></div>
+      <div><label>Printer draw (watts)</label><input id="pc-watts" type="number" inputmode="decimal" value="200"></div>
+    </div>
+    <label>Electricity rate ($/kWh) &mdash; MA &asymp; 0.30</label>
+    <input id="pc-kwh" type="number" inputmode="decimal" value="0.30" step="0.01">
+  </div>
+  <div class="pc-card">
+    <h2>Your time &amp; extras</h2>
+    <div class="pc-row">
+      <div><label>Your labor (minutes)</label><input id="pc-laborMin" type="number" inputmode="decimal" value="20"></div>
+      <div><label>Hourly rate ($/hr)</label><input id="pc-laborRate" type="number" inputmode="decimal" value="12"></div>
+    </div>
+    <label>Packaging / other costs ($)</label>
+    <input id="pc-other" type="number" inputmode="decimal" value="0" step="0.01">
+  </div>
+  <div class="pc-card">
+    <h2>True cost</h2>
+    <div class="pc-line"><span>Filament (with waste)</span><b id="pc-cFil">$0.00</b></div>
+    <div class="pc-line"><span>Electricity</span><b id="pc-cElec">$0.00</b></div>
+    <div class="pc-line"><span>Your labor</span><b id="pc-cLabor">$0.00</b></div>
+    <div class="pc-line"><span>Packaging / other</span><b id="pc-cOther">$0.00</b></div>
+    <div class="pc-line pc-total"><span><b>Total cost</b></span><b id="pc-cTotal">$0.00</b></div>
+  </div>
+  <div class="pc-price">
+    <div class="r">Suggested price (2.5&times; cost)</div>
+    <div class="p" id="pc-suggest">$0.00</div>
+    <div class="r">Range: <b id="pc-low">$0.00</b> (2&times;) &ndash; <b id="pc-high">$0.00</b> (3&times;)</div>
+  </div>
+  <p><button class="pc-reset" id="pc-reset" type="button">Reset to defaults</button></p>
+</div>
+<script>
+(function(){
+var DEF={grams:60,waste:12,spoolPrice:22,spoolGrams:1000,hours:6,watts:200,kwh:0.30,laborMin:20,laborRate:12,other:0};
+var IDS=Object.keys(DEF).map(function(k){return "pc-"+k;});
+function $(id){return document.getElementById(id);}
+function val(id){var v=parseFloat($(id).value);return isNaN(v)?0:v;}
+function money(n){return "$"+n.toFixed(2);}
+function calc(){
+  var cFil=val("pc-grams")*(1+val("pc-waste")/100)*(val("pc-spoolPrice")/Math.max(val("pc-spoolGrams"),1));
+  var cElec=(val("pc-watts")/1000)*val("pc-hours")*val("pc-kwh");
+  var cLabor=(val("pc-laborMin")/60)*val("pc-laborRate");
+  var o=val("pc-other"), total=cFil+cElec+cLabor+o;
+  $("pc-cFil").textContent=money(cFil);
+  $("pc-cElec").textContent=money(cElec);
+  $("pc-cLabor").textContent=money(cLabor);
+  $("pc-cOther").textContent=money(o);
+  $("pc-cTotal").textContent=money(total);
+  $("pc-suggest").textContent=money(total*2.5);
+  $("pc-low").textContent=money(total*2);
+  $("pc-high").textContent=money(total*3);
+  try{var s={};IDS.forEach(function(id){s[id]=$(id).value;});
+    localStorage.setItem("print-pricing",JSON.stringify(s));}catch(e){}
+}
+function load(){
+  try{var s=JSON.parse(localStorage.getItem("print-pricing")||"null");
+    if(s)IDS.forEach(function(id){if(s[id]!==undefined)$(id).value=s[id];});}catch(e){}
+}
+IDS.forEach(function(id){$(id).addEventListener("input",calc);});
+$("pc-reset").addEventListener("click",function(){
+  Object.keys(DEF).forEach(function(k){$("pc-"+k).value=DEF[k];});calc();});
+load();calc();
+})();
+</script>
+<h2>The formula behind it</h2>
+<ul>
+  <li><strong>Filament:</strong> grams used &times; (spool price &divide; spool grams), plus 10&ndash;15% for failed prints, brims, and purge.</li>
+  <li><strong>Electricity:</strong> printer kW &times; hours &times; your $/kWh. On an SV01 this is usually the smallest line item &mdash; cents, not dollars.</li>
+  <li><strong>Labor:</strong> slicing, support removal, cleanup, photos, listing, and meeting the buyer. This is usually the <em>biggest</em> cost people forget.</li>
+</ul>
+<h2>The 2&ndash;3&times; rule</h2>
+<p>Your costs set the <strong>floor</strong>; the market sets the <strong>ceiling</strong>. Pricing at 2&ndash;3&times; true cost keeps you profitable after the occasional failed print and the fees life throws at you. Before listing, check what similar prints actually sell for &mdash; if the going price can't clear 2&times; your cost, that print isn't worth selling.</p>
+
+
+</main>
+<footer class="site-footer">
+  <p>Built for the Sovol SV01 &mdash; applies to most FDM printers. <a href="sources.html">Sources &amp; credits</a></p>
+  <p class="disclaimer">Community knowledge, not manufacturer advice. When in doubt, check your printer's manual. Never leave a malfunctioning printer unattended.</p>
+</footer>
+<script>const SEARCH_ROOT = "";</script>
+<script src="search.js"></script>
+</body>
+</html>

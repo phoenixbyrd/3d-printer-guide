@@ -149,6 +149,7 @@ BASE = """<!DOCTYPE html>
       <a href="{root}filament.html">Filament</a>
       <a href="{root}maintenance.html">Maintenance</a>
       <a href="{root}upgrades.html">Upgrades</a>
+      <a href="{root}pricing.html">Pricing</a>
     </nav>
     <div class="search-wrap">
       <input id="site-search" type="search" placeholder="Search symptoms, e.g. &quot;spaghetti&quot;&hellip;" autocomplete="off" aria-label="Search the guide">
@@ -368,6 +369,7 @@ def main():
     <a href="filament.html"><strong>Filament guide</strong><span>PLA, PETG, ABS/ASA, TPU: temps, storage, drying.</span></a>
     <a href="maintenance.html"><strong>Maintenance schedule</strong><span>Daily, weekly, monthly checklists.</span></a>
     <a href="upgrades.html"><strong>SV01 upgrades</strong><span>What's worth it, what to skip.</span></a>
+    <a href="pricing.html"><strong>Print pricing calculator</strong><span>Filament, electricity, and labor costs plus a suggested price range.</span></a>
   </div>
 </section>
 {''.join(cat_sections)}
@@ -387,6 +389,22 @@ def main():
     with open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8") as f:
         f.write(home)
 
+    # ---- pricing calculator page ----
+    with open(os.path.join(CONTENT, "pricing.html"), encoding="utf-8") as f:
+        pricing_src = f.read()
+    pricing_page = BASE.format(
+        page_title=f"Print pricing calculator | {SITE_TITLE}",
+        meta_desc="Price your 3D prints: filament, electricity, and labor costs plus a suggested price range.",
+        root="",
+        content=ARTICLE_BODY.format(
+            root="",
+            title="Print pricing calculator",
+            description="Price your prints so filament, electricity, and your time are covered \u2014 with profit left over.",
+            content=pricing_src),
+    )
+    with open(os.path.join(DOCS, "pricing.html"), "w", encoding="utf-8") as f:
+        f.write(pricing_page)
+
     # ---- search index ----
     index = []
     for i in issues:
@@ -404,6 +422,10 @@ def main():
         index.append({"title": m.get("title", a["slug"]), "url": a["slug"] + ".html",
                       "category": "Guide", "keywords": m.get("description", ""),
                       "excerpt": m.get("description", ""), "body": text})
+    index.append({"title": "Print pricing calculator", "url": "pricing.html",
+                  "category": "Guide",
+                  "keywords": "price pricing cost filament electricity profit marketplace sell calculator",
+                  "excerpt": "Price your prints so filament, electricity, and your time are covered \u2014 with profit left over."})
     with open(os.path.join(DOCS, "search.json"), "w", encoding="utf-8") as f:
         json.dump(index, f)
 
